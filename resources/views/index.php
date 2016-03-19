@@ -150,7 +150,9 @@
                     <i class="fa fa-sign-in"></i>&nbsp;Aanmelden
                 </a>
             </p>
-            <p ng-show="currentUser" class="navbar-text pull-right"><i class="fa fa-sign-out"></i>&nbsp;Afmelden</p>
+            <p ng-show="currentUser" class="navbar-text pull-right">
+                <a href="javascript:;" ng-click="hc.logout()"><i class="fa fa-sign-out"></i>&nbsp;Afmelden</a>
+            </p>
 
         </div>
     </nav>

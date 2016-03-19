@@ -7,12 +7,22 @@
         .controller('HeaderController', HeaderController);
 
 
-    function HeaderController($state, $location) {
+    function HeaderController($state, $location, $rootScope, Auth) {
 
         var vm = this;
 
         vm.isActive = function (viewLocation) {
             return viewLocation === $location.path();
+        };
+
+        vm.logout = function () {
+            if ($rootScope.refreshHandler) {
+                window.clearInterval($rootScope.refreshHandler);
+            }
+
+            Auth.logout(function () {
+                $state.go('home', {});
+            });
         };
         
         vm.goto = function (state) {
