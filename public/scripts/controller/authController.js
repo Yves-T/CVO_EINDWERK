@@ -42,7 +42,13 @@
 
             }, function (error) {
                 vm.loginError = true;
-                vm.loginErrorText = error.data.error;
+                if (error.data.error.localeCompare('invalid_credentials') === 0) {
+                    vm.loginErrorText = "Ongeldige inlog gegevens!";
+                } else if (error.data.error.localeCompare('could_not_create_token') === 0) {
+                    vm.loginErrorText = "Kon geen security token aanmaken voor de gebruiker!";
+                } else {
+                    vm.loginErrorText = error.data.error;
+                }
             });
         }
     }
