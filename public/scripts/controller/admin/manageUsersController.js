@@ -11,7 +11,6 @@
         // if the user is not logged in, throw them back to the login page
         if (!Auth.isAuthenticated()) {
             Auth.clearAuthenticated();
-            console.log('redirect');
             $state.go('home', {});
         }
 
@@ -57,7 +56,8 @@
         };
 
         vm.showUserDetail = function (id) {
-
+            var student = _.find(vm.students, ['id', id]);
+            $state.go('adminManageUsersDetail', {'student': student});
         };
     }
 })();

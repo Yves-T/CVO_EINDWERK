@@ -80,6 +80,12 @@
                     url: '/admin_beheren_van_gebruikers',
                     templateUrl: '../views/admin/manageUsersView.html',
                     controller: 'ManageUsersController as muc'
+                })
+                .state('adminManageUsersDetail', {
+                    url: '/admin_gebruiker_detail',
+                    templateUrl: '../views/admin/StudentDetail.html',
+                    controller: 'StudentDetailController as sdc',
+                    params: {student: null}
                 });
 
         })

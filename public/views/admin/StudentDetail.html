@@ -1,0 +1,27 @@
+<h3>Student detail</h3>
+<div class="row" ng-show="sdc.student.firstname">
+    <div class="col-lg-12">
+        <p><strong>Voornaam :</strong> {{sdc.student.firstname}}</p>
+        <p><strong>Achternaam :</strong> {{sdc.student.lastname}}</p>
+        <p><strong>School :</strong> {{sdc.student.school}}</p>
+        <p><strong>Studie :</strong> {{sdc.student.study}}</p>
+        <p><strong>Jaar :</strong> {{sdc.student.year}}</p>
+        <p><strong>Intresse :</strong> {{sdc.student.intrest}}</p>
+        <p><strong>Is actief :</strong> {{sdc.student.isActive | yesNo}}</p>
+        <p><strong>Geregistreerd op :</strong> {{sdc.createdAt}}</p>
+        <hr>
+        <p><strong>Project titel waar de student aan verbonden is :</strong> {{sdc.student.project.title}}</p>
+    </div>
+</div>
+
+<div class="row" ng-hide="sdc.student.firstname">
+    <div class="alert alert-warning">
+        <p>Er zijn geen resultaten voor deze student</p>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-12">
+        <button class="btn btn-default" ng-click="sdc.goBack()">Ga terug naar het studenten overzicht</button>
+    </div>
+</div>

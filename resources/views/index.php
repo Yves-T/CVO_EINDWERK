@@ -171,6 +171,7 @@
 <!-- Application Dependencies -->
 <script src="bower_components/jquery/dist/jquery.min.js"></script>
 <script src="node_modules/lodash/lodash.min.js"></script>
+<script src="node_modules/moment/min/moment.min.js"></script>
 <script src="node_modules/angular/angular.js"></script>
 <script src="node_modules/angular-ui-router/release/angular-ui-router.js"></script>
 <script src="node_modules/angular-animate/angular-animate.min.js"></script>
@@ -188,8 +189,10 @@
 <script src="scripts/controller/headerController.js"></script>
 <script src="scripts/controller/homeController.js"></script>
 <script src="scripts/controller/admin/manageUsersController.js"></script>
+<script src="scripts/controller/admin/studentDetailController.js"></script>
 <script src="scripts/service/authService.js"></script>
 <script src="scripts/service/dataService.js"></script>
 <script src="scripts/directives/confirmDirective.js"></script>
+<script src="scripts/filter/yesNo.js"></script>
 
 </html>
