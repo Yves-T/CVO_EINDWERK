@@ -28,7 +28,6 @@
             console.log(error);
         });
 
-
         vm.loginError = false;
         vm.loginErrorText;
         vm.reverse = false;
@@ -48,16 +47,12 @@
         };
 
         vm.toggleActive = function (id) {
-            console.log('toggle active ' + id);
             var student = _.find(vm.students, ['id', id]);
             Data.toggleActiveStudent(id, function (id) {
-                console.log(id);
                 student.isActive = !student.isActive;
-                console.log(student);
             }, function (error) {
                 console.log(error);
             });
-
         };
 
         vm.showUserDetail = function (id) {
