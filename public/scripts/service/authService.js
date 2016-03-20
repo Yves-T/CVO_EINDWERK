@@ -1,12 +1,22 @@
 angular
     .module('humasol')
-    .service('Auth', ['$auth', '$window', '$rootScope', 'Data', function ($auth, $window, $rootScope, Data) {
+    .service('Auth', [
+        '$auth',
+        '$window',
+        '$rootScope',
+        'Data',
+        '$state'
+        , function ($auth, $window, $rootScope, Data, $state) {
 
         function refreshToken() {
             Data.refreshToken(function () {
                 console.log('token refreshed');
             }, function (error) {
                 console.log(error);
+                clearAuthenticated();
+                $rootScope.authenticated = false;
+                $rootScope.currentUser = null;
+                $state.go('auth', {});
             });
         }
 

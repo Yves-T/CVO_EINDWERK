@@ -11,6 +11,10 @@
 
         var vm = this;
 
+        if (!$rootScope.refreshHandler && Auth.isAuthenticated()) {
+            Auth.startRefreshToken();
+        }
+
         vm.isActive = function (viewLocation) {
             return viewLocation === $location.path();
         };
