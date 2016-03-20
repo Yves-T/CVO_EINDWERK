@@ -15,6 +15,11 @@
             $state.go('home', {});
         }
 
+        if (!Auth.isAdminUser()) {
+            Auth.clearAuthenticated();
+            $state.go('home', {});
+        }
+
         var vm = this;
         vm.student = $stateParams.student;
         if (vm.student) {

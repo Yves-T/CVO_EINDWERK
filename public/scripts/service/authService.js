@@ -45,6 +45,15 @@ angular
             }));
         };
 
+        var isAdminUser = function() {
+            var user = JSON.parse(localStorage.getItem('user'));
+            if(user) {
+                return user.isAdmin;
+            } else {
+                return false;
+            }
+        };
+
         var currentUser = function () {
             var user = JSON.parse(localStorage.getItem('user'));
             return user;
@@ -55,7 +64,8 @@ angular
             isAuthenticated: isAuthenticated,
             clearAuthenticated: clearAuthenticated,
             logout: logOut,
-            currentUser: currentUser
+            currentUser: currentUser,
+            isAdminUser: isAdminUser
         };
 
     }]);
