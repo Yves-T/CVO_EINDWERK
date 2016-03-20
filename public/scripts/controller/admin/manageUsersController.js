@@ -22,9 +22,11 @@
         var vm = this;
         vm.students = [];
         vm.message = $stateParams.message;
+        vm.showEmptyResultMessage = false;
 
         Data.getStudents(function (students) {
             vm.students = students;
+            vm.showEmptyResultMessage = !students.length;
         }, function (error) {
             console.log(error);
         });

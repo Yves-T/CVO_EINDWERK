@@ -94,7 +94,7 @@
         <button ng-click="muc.addStudent()" class="btn btn-success">Student toevoegen</button>
 
     </div>
-    <div ng-hide="muc.showTable()">
+    <div ng-show="muc.showEmptyResultMessage">
         <div class="alert alert-warning">
             Er zijn geen resultaten beschikbaar.
         </div>
