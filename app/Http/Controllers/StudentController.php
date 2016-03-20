@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Student;
+use DB;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -81,7 +82,26 @@ class StudentController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        DB::beginTransaction();
+        $student = Student::findOrFail($id);
+
+        $user = $student->user;
+        $user->name = $request->studentFirstName . ' ' . $request->studentLasttName;
+        $user->email = $request->studentEmail;
+
+        $student->firstname = $request->studentFirstName;
+        $student->lastname = $request->studentLastName;
+        $student->school = $request->studentSchool;
+        $student->study = $request->studentStudy;
+        $student->year = $request->studentYear;
+        $student->intrest = $request->studentIntrest;
+        $student->isActive = $request->studentActive;
+
+        $user->update();
+        $student->update();
+
+        DB::commit();
+        return response()->json($request);
     }
 
     /**

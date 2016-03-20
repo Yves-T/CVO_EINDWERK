@@ -22,11 +22,16 @@ angular
             $http.post('api/user/', formData).success(success).error(error);
         };
 
+        var updateStudent = function (id, formData, success, error) {
+            $http.put('api/student/' + id, formData).success(success).error(error);
+        };
+
         return {
             getAuthenticatedUser: getAuthenticatedUser,
             refreshToken: refreshToken,
             getStudents: getStudents,
             toggleActiveStudent: toggleActiveStudent,
-            addStudent: addStudent
+            addStudent: addStudent,
+            updateStudent: updateStudent
         };
     }]);

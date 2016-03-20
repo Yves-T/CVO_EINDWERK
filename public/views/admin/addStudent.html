@@ -75,15 +75,16 @@
         </p>
     </div>
 
-    <div class="form-group">
+    <div class="form-group" ng-hide="sfc.studentIsUpdating">
         <label for="studentPassword">Paswoord</label>
-        <input required type="password" class="form-control" id="studentPassword" name="studentPassword"
+        <input ng-required="!sfc.studentIsUpdating" type="password" class="form-control" id="studentPassword"
+               name="studentPassword"
                ng-model="sfc.formData.studentPassword">
     </div>
 
     <div class="form-group">
         <label for="studentActive">Activeren</label>
-        <input required type="checkbox" class="form-control" id="studentActive" name="studentActive"
+        <input type="checkbox" class="form-control" id="studentActive" name="studentActive"
                ng-model="sfc.formData.studentActive">
     </div>
 

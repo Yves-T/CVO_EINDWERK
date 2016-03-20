@@ -6,7 +6,7 @@
         .module('humasol')
         .controller('StudentFormController', StudentFormController);
 
-    function StudentFormController($state, Data, Auth) {
+    function StudentFormController($state, Data, Auth, $stateParams) {
 
         // if the user is not logged in, throw them back to the login page
         if (!Auth.isAuthenticated()) {
@@ -20,6 +20,21 @@
         }
 
         var vm = this;
+        vm.student = null;
+        vm.studentIsUpdating = ($stateParams.student) ? true : false;
+        if ($stateParams.student) {
+            var student = $stateParams.student;
+            vm.formData = {
+                "studentYear": student.year,
+                "studentFirstName": student.firstname,
+                "studentLastName": student.lastname,
+                "studentEmail": "yves.talboom@gmail.com",
+                "studentSchool": student.school,
+                "studentStudy": student.study,
+                "studentIntrest": student.intrest,
+                "studentActive": (student.isActive == '1' )
+            };
+        }
 
         vm.yearChanged = function () {
             var year = parseInt(vm.formData.studentYear);
@@ -29,9 +44,35 @@
         };
 
         vm.processForm = function () {
-            console.log(vm.formData);
-            handleCreateStudent();
+            if (vm.studentIsUpdating) {
+                handleStudentUpdate();
+            } else {
+                handleCreateStudent();
+            }
         };
+
+        function handleStudentUpdate() {
+            Data.updateStudent($stateParams.student.id, vm.formData, function (result) {
+                $state.go('adminManageUsers', {
+                        message: {
+                            "message": 'Student' + result + ' met success aangepast',
+                            "error": null
+                        }
+                    }
+                );
+            }, function (error) {
+                console.log('result NOK');
+                console.log(error);
+
+                $state.go('adminManageUsers', {
+                        message: {
+                            "message": null,
+                            "error": 'Er ging iets mis tijdens het aanpassen van de student'
+                        }
+                    }
+                );
+            });
+        }
 
         function handleCreateStudent() {
             Data.addStudent(vm.formData, function (result) {

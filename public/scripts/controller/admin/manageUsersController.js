@@ -44,7 +44,8 @@
         };
 
         vm.updateStudent = function (id) {
-
+            var student = _.find(vm.students, ['id', id]);
+            $state.go('adminManageUserAddStudent', {'student': student});
         };
 
         vm.addStudent = function () {
