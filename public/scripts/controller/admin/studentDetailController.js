@@ -28,7 +28,10 @@
         }
 
         vm.goBack = function () {
-            $state.go('adminManageUsers', {});
+            $state.go('adminManageUsers', {
+                "message": null,
+                "error": null
+            });
         };
     }
 })();

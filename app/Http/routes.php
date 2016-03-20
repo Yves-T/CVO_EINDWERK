@@ -12,4 +12,6 @@ Route::group(['prefix' => 'api'], function () {
 
     Route::put('student/active/{id}', 'StudentController@toggleActive');
     Route::resource('student', 'StudentController');
+
+    Route::resource('user', 'UserController');
 });

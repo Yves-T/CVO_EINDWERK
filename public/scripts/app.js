@@ -84,12 +84,19 @@
                 .state('adminManageUsers', {
                     url: '/admin_beheren_van_gebruikers',
                     templateUrl: '../views/admin/manageUsersView.html',
-                    controller: 'ManageUsersController as muc'
+                    controller: 'ManageUsersController as muc',
+                    params: {message: null, error: null}
                 })
                 .state('adminManageUsersDetail', {
                     url: '/admin_gebruiker_detail',
                     templateUrl: '../views/admin/StudentDetail.html',
                     controller: 'StudentDetailController as sdc',
+                    params: {student: null}
+                })
+                .state('adminManageUserAddStudent', {
+                    url: '/admin_gebruiker_voeg_student_toe',
+                    templateUrl: '../views/admin/addStudent.html',
+                    controller: 'StudentFormController as sfc',
                     params: {student: null}
                 });
 

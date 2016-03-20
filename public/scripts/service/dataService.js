@@ -18,10 +18,15 @@ angular
             $http.put('api/student/active/' + studentId).success(success).error(error);
         };
 
+        var addStudent = function (formData, success, error) {
+            $http.post('api/user/', formData).success(success).error(error);
+        };
+
         return {
             getAuthenticatedUser: getAuthenticatedUser,
             refreshToken: refreshToken,
             getStudents: getStudents,
-            toggleActiveStudent: toggleActiveStudent
+            toggleActiveStudent: toggleActiveStudent,
+            addStudent: addStudent
         };
     }]);

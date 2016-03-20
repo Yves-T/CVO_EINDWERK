@@ -69,7 +69,7 @@ class DatabaseSeeder extends Seeder
             User::create($user);
         }
 
-        $studentUser = User::where('student', '=', 'admin')->take(1)->get();
+        $studentUser = User::where('name', '=', 'student')->take(1)->get();
 
         $student = Student::create(array(
             'firstname' => 'student',

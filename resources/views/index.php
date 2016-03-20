@@ -230,6 +230,7 @@
 <script src="scripts/controller/registerStudentController.js"></script>
 <script src="scripts/controller/admin/manageUsersController.js"></script>
 <script src="scripts/controller/admin/studentDetailController.js"></script>
+<script src="scripts/controller/admin/studentFormController.js"></script>
 <script src="scripts/service/authService.js"></script>
 <script src="scripts/service/dataService.js"></script>
 <script src="scripts/directives/confirmDirective.js"></script>

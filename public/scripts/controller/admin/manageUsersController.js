@@ -6,7 +6,7 @@
         .module('humasol')
         .controller('ManageUsersController', ManageUsersController);
 
-    function ManageUsersController($state, Data, Auth) {
+    function ManageUsersController($state, Data, Auth, $stateParams) {
 
         // if the user is not logged in, throw them back to the login page
         if (!Auth.isAuthenticated()) {
@@ -21,6 +21,7 @@
 
         var vm = this;
         vm.students = [];
+        vm.message = $stateParams.message;
 
         Data.getStudents(function (students) {
             vm.students = students;
@@ -44,6 +45,10 @@
 
         vm.updateStudent = function (id) {
 
+        };
+
+        vm.addStudent = function () {
+            $state.go('adminManageUserAddStudent', {'student': null});
         };
 
         vm.toggleActive = function (id) {
