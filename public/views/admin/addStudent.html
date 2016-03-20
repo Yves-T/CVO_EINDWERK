@@ -88,6 +88,7 @@
                ng-model="sfc.formData.studentActive">
     </div>
 
-    <button type="submit" class="btn btn-default" ng-disabled="registerStudentForm.$invalid">Verzenden</button>
+    <button type="submit" class="btn btn-primary" ng-disabled="registerStudentForm.$invalid">Verzenden</button>
+    <button class="btn btn-default" ng-click="sfc.goBack()">Annuleren</button>
 
 </form>

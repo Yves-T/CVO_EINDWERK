@@ -96,5 +96,10 @@
                 );
             });
         }
+
+        vm.goBack = function () {
+            $state.go('adminManageUsers', {});
+        };
+
     }
 })();
