@@ -30,7 +30,6 @@
         });
 
         vm.loginError = false;
-        vm.loginErrorText;
         vm.reverse = false;
         vm.sortKey = 'user.id';
 
