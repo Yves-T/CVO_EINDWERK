@@ -55,6 +55,16 @@ class AuthenticateController extends Controller
                 return response()->json(['user_not_found'], 404);
             }
 
+            if (isset($user)) {
+                if ($user->isAStudent) {
+                    foreach ($user->students as $student) {
+                        if (!$student->isActive) {
+                            return response()->json(['student_not_active'], 403);
+                        }
+                    }
+                }
+            }
+
         } catch (TokenExpiredException $e) {
 
             return response()->json(['token_expired'], $e->getStatusCode());

@@ -119,7 +119,11 @@
                         Studenten<b class="caret"></b>
                     </a>
                     <ul role="menu" class="dropdown-menu">
-                        <li><a tabindex="-1" href="#"> Updaten / aanpassen / verwijderen </a></li>
+                        <li>
+                            <a tabindex="-1" href="javascript:;" ng-click="hc.goto('adminManageUsers')">
+                                Updaten / aanpassen / verwijderen
+                            </a>
+                        </li>
                         <li class="divider"></li>
                         <li><a tabindex="-1" href="#"> Koppelen met project </a></li>
                         <li><a tabindex="-1" href="#"> Ontkoppelen met project </a></li>
@@ -183,7 +187,9 @@
 <script src="scripts/controller/authController.js"></script>
 <script src="scripts/controller/headerController.js"></script>
 <script src="scripts/controller/homeController.js"></script>
+<script src="scripts/controller/admin/manageUsersController.js"></script>
 <script src="scripts/service/authService.js"></script>
 <script src="scripts/service/dataService.js"></script>
+<script src="scripts/directives/confirmDirective.js"></script>
 
 </html>

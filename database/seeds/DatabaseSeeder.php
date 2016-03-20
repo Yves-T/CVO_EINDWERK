@@ -57,13 +57,19 @@ class DatabaseSeeder extends Seeder
         $users = array(
             ['name' => 'admin', 'email' => 'admin@cvo.be', 'password' => Hash::make('secret'), 'isAdmin' => 1],
             ['name' => 'student', 'email' => 'student@cvo.be', 'password' => Hash::make('secret'), 'isAStudent' => 1],
+            [
+                'name' => 'studentwithoutproject',
+                'email' => 'studentwithoutproject@cvo.be',
+                'password' => Hash::make('secret'),
+                'isAStudent' => 1
+            ]
         );
 
         foreach ($users as $user) {
             User::create($user);
         }
 
-        $studentUser = User::where('name', '=', 'admin')->take(1)->get();
+        $studentUser = User::where('student', '=', 'admin')->take(1)->get();
 
         $student = Student::create(array(
             'firstname' => 'student',
@@ -74,6 +80,20 @@ class DatabaseSeeder extends Seeder
             'intrest' => 'someIntrest',
             'users_id' => $studentUser[0]->id,
             'project_id' => $project->id
+        ));
+
+        $studentUser = User::where('name', '=', 'studentwithoutproject')->take(1)->get();
+
+        $noProjectStudent = Student::create(array(
+            'firstname' => 'studentwithoutproject',
+            'lastname' => 'lastnameStudent',
+            'school' => 'someSchool',
+            'study' => 'someStudy',
+            'year' => '2008',
+            'intrest' => 'someIntrest',
+            'users_id' => $studentUser[0]->id,
+            'project_id' => null,
+            'isActive' => false
         ));
 
         $blog = Blog::create(array(

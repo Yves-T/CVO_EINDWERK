@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddOneToManyProjectStudentsToStudentTable extends Migration
+class AddIsactiveToStudent extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class AddOneToManyProjectStudentsToStudentTable extends Migration
     public function up()
     {
         Schema::table('students', function (Blueprint $table) {
-            $table->integer('project_id')->nullable()->default(null)->unsigned();
+            $table->boolean('isActive')->default(true);
         });
     }
 
@@ -25,7 +25,7 @@ class AddOneToManyProjectStudentsToStudentTable extends Migration
     public function down()
     {
         Schema::table('students', function (Blueprint $table) {
-            $table->dropColumn('project_id');
+            //
         });
     }
 }

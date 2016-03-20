@@ -38,6 +38,8 @@
                     $state.go('home');
                 }, function (err) {
                     console.log("Error when trying to get authenticated user: " + err);
+                    vm.loginError = true;
+                    vm.loginErrorText = "Student account is niet actief! Contacteer support.";
                 });
 
             }, function (error) {

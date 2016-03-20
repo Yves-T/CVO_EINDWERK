@@ -10,8 +10,18 @@ angular
             $http.get('api/authenticate/refresh').success(success).error(error);
         };
 
+        var getStudents = function (success, error) {
+            $http.get('api/student').success(success).error(error);
+        };
+
+        var toggleActiveStudent = function (studentId, success, error) {
+            $http.put('api/student/active/' + studentId).success(success).error(error);
+        };
+
         return {
             getAuthenticatedUser: getAuthenticatedUser,
-            refreshToken: refreshToken
+            refreshToken: refreshToken,
+            getStudents: getStudents,
+            toggleActiveStudent: toggleActiveStudent
         };
     }]);

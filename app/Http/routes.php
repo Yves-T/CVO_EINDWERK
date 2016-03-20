@@ -9,4 +9,7 @@ Route::group(['prefix' => 'api'], function () {
     Route::post('authenticate', 'AuthenticateController@authenticate');
     Route::get('authenticate/user', 'AuthenticateController@getAuthenticatedUser');
     Route::get('authenticate/refresh', 'AuthenticateController@refreshToken');
+
+    Route::put('student/active/{id}', 'StudentController@toggleActive');
+    Route::resource('student', 'StudentController');
 });

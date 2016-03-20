@@ -75,8 +75,12 @@
                     url: '/auth',
                     templateUrl: '../views/authView.html',
                     controller: 'AuthController as auth'
+                })
+                .state('adminManageUsers', {
+                    url: '/admin_beheren_van_gebruikers',
+                    templateUrl: '../views/admin/manageUsersView.html',
+                    controller: 'ManageUsersController as muc'
                 });
-
 
         })
         .run(function ($rootScope, $state, $auth, $http, Auth) {

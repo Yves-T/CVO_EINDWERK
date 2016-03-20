@@ -13,7 +13,7 @@ class Student extends Model
 
     public function project()
     {
-        return $this->belongsTo(User::class, 'project_id');
+        return $this->belongsTo(Project::class, 'project_id');
     }
 
     public function post()
