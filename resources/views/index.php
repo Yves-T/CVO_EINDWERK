@@ -152,7 +152,7 @@
 
             <!-- admin only section-->
             <ul ng-show="currentUser.isAdmin" class="nav navbar-nav">
-                <!-- user profile section -->
+                <!-- admin user section -->
                 <li class="dropdown" dropdown>
                     <a class="dropdown-toggle" dropdown-toggle toggle-event="mouseover" href="#">
                         Studenten<b class="caret"></b>
