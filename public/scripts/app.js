@@ -71,6 +71,11 @@
                     templateUrl: '../views/homeView.html',
                     controller: 'HomeController as home'
                 })
+                .state('registerStudent', {
+                    url: '/hou_me_op_de_hoogte',
+                    templateUrl: '../views/registerStudent.html',
+                    controller: 'RegisterStudentController as rsc'
+                })
                 .state('auth', {
                     url: '/auth',
                     templateUrl: '../views/authView.html',

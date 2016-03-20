@@ -88,6 +88,45 @@
                 </li>
             </ul>
 
+            <ul class="nav navbar-nav">
+                <!-- Studenten -->
+                <li class="dropdown open" dropdown>
+                    <a href="#" class="dropdown-toggle" dropdown-toggle toggle-event="mouseover">
+                        Studenten<b class="caret"></b>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <div class="yamm-content">
+                                <ul class="media-list">
+                                    <li class="media">
+                                        <div class="media-body">
+                                            <h4 class="media-heading">Algemene info</h4>
+                                        </div>
+                                    </li>
+                                    <li class="media">
+                                        <div class="media-body">
+                                            <h4 class="media-heading">Kandidaat stellen</h4>
+                                        </div>
+                                    </li>
+                                    <li class="media">
+                                        <div class="media-body">
+                                            <h4 class="media-heading" ng-click="hc.goto('registerStudent')">
+                                                Hou me op de hoogte
+                                            </h4>
+                                        </div>
+                                    </li>
+                                    <li class="media">
+                                        <div class="media-body">
+                                            <h4 class="media-heading">Vacatures</h4>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+
             <!--        private section-->
             <!--        user only section-->
             <ul ng-show="currentUser.isAStudent" class="nav navbar-nav">
@@ -188,6 +227,7 @@
 <script src="scripts/controller/authController.js"></script>
 <script src="scripts/controller/headerController.js"></script>
 <script src="scripts/controller/homeController.js"></script>
+<script src="scripts/controller/registerStudentController.js"></script>
 <script src="scripts/controller/admin/manageUsersController.js"></script>
 <script src="scripts/controller/admin/studentDetailController.js"></script>
 <script src="scripts/service/authService.js"></script>
