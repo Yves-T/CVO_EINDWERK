@@ -7,13 +7,13 @@
                 <input type="text" ng-model="muc.search" class="form-control" placeholder="Zoek">
             </div>
         </form>
-        <div class="row" ng-show="muc.message.message">
+        <div ng-cloak class="row" ng-show="muc.okMessage">
             <div class="col-lg-12">
                 <div class="alert alert-success" role="alert">{{muc.message.message}}</div>
             </div>
         </div>
 
-        <div class="row" ng-show="muc.message.error">
+        <div ng-cloak class="row" ng-show="muc.errorMessage">
             <div class="col-lg-12">
                 <div class="alert alert-warning" role="alert">{{muc.message.error}}</div>
             </div>

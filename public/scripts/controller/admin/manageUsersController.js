@@ -31,7 +31,14 @@
 
         vm.loginError = false;
         vm.reverse = false;
+        vm.okMessage = false;
+        vm.errorMessage = false;
         vm.sortKey = 'user.id';
+
+        if (vm.message) {
+            vm.okMessage = (vm.message.message) ? true : false;
+            vm.errorMessage = (vm.message.error) ? true : false;
+        }
 
         vm.sort = function (keyname) {
             vm.sortKey = keyname;
