@@ -101,7 +101,7 @@ class StudentController extends Controller
         $student->update();
 
         DB::commit();
-        return response()->json($request);
+        return response()->json($student->firstname . ' ' . $student->lastname);
     }
 
     /**
