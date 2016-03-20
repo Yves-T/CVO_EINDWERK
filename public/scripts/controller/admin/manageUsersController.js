@@ -6,7 +6,7 @@
         .module('humasol')
         .controller('ManageUsersController', ManageUsersController);
 
-    function ManageUsersController($state, $rootScope, Data, Auth) {
+    function ManageUsersController($state, Data, Auth) {
 
         // if the user is not logged in, throw them back to the login page
         if (!Auth.isAuthenticated()) {
