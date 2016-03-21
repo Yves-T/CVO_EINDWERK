@@ -1,6 +1,6 @@
 <div class="col-sm-12">
     <h3>Beheer blog posts</h3>
-    <div ng-show="mbpc.showTable()">
+    <div ng-show="mbpc.showTable">
         <form class="form-inline">
             <div class="form-group">
                 <label>Zoek</label>
@@ -70,13 +70,22 @@
                 </dir-pagination-controls>
             </div>
         </div>
-
-        <button ng-click="mbpc.addPost()" class="btn btn-success">Post toevoegen</button>
-
     </div>
+
+    <div class="row">
+        <div class="col-lg-12">
+            <button ng-click="mbpc.addPost()" class="btn btn-success">Post toevoegen</button>
+        </div>
+    </div>
+
     <div ng-show="mbpc.showEmptyResultMessage">
-        <div class="alert alert-warning">
-            Er zijn geen resultaten beschikbaar.
+        <div class="row">
+            <div class="col-lg-12">
+                <hr>
+                <div class="alert alert-warning">
+                    Er zijn geen resultaten beschikbaar.
+                </div>
+            </div>
         </div>
     </div>
 </div>

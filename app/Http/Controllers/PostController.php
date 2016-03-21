@@ -25,6 +25,18 @@ class PostController extends Controller
     }
 
     /**
+     * Delete post with given post id.
+     * @param $id
+     * @return mixed
+     */
+    public function destroy($id)
+    {
+        $post = Post::findOrFail($id);
+        $post->delete();
+        return response()->json($id);
+    }
+
+    /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request $request

@@ -50,6 +50,10 @@ angular
             $http.put('api/post/' + postId, formData).success(success).error(error);
         };
 
+        var deletePost = function (postId, success, error) {
+            $http.delete('api/post/' + postId).success(success).error(error);
+        };
+
         return {
             getAuthenticatedUser: getAuthenticatedUser,
             refreshToken: refreshToken,
@@ -62,6 +66,7 @@ angular
             disconnectStudentToProject: disconnectStudentToProject,
             getPostsForStudent: getPostsForStudent,
             addPostForStudent: addPostForStudent,
-            updatePost: updatePost
+            updatePost: updatePost,
+            deletePost: deletePost
         };
     }]);

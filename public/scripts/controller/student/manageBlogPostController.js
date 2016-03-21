@@ -24,6 +24,7 @@
         Data.getPostsForStudent(Auth.currentUser().id, function (posts) {
             vm.blogPosts = posts;
             vm.showEmptyResultMessage = !posts.length;
+            vm.showTable = vm.blogPosts.length;
         }, function (error) {
             console.log(error);
         });
@@ -46,8 +47,20 @@
             $state.go('studentBlogPost', {});
         };
 
-        vm.deletePost = function () {
-
+        vm.deletePost = function (id) {
+            Data.deletePost(id, function (id) {
+                var post = _.find(vm.blogPosts, ['id', id]);
+                var postIndex = vm.blogPosts.indexOf(post);
+                vm.blogPosts.splice(postIndex, 1);
+                vm.message = {'message': "De post werd met met succes verwijderd.", "error": null};
+                vm.messageSuccess = 0;
+                vm.showEmptyResultMessage = vm.blogPosts.length === 0;
+                vm.showTable = vm.blogPosts.length;
+            }, function (error) {
+                console.log(error);
+                vm.message = {"message": null, "error": "Er ging iets mis tijdens het verwijderen van de blog post."};
+                vm.messageError = 0;
+            });
         };
 
         vm.updatePost = function (id) {
@@ -55,9 +68,6 @@
             $state.go('studentBlogPost', {'post': post});
         };
 
-        vm.showTable = function () {
-            return vm.blogPosts.length !== 0;
-        };
 
     }
 })();
