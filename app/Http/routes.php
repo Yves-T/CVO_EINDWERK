@@ -18,6 +18,8 @@ Route::group(['prefix' => 'api'], function () {
     Route::resource('post', 'PostController');
     Route::resource('student', 'StudentController');
 
+    Route::get('project/all', 'ProjectController@getAllProjects');
+    Route::put('project/active/{id}', 'ProjectController@toggleActive');
     Route::resource('user', 'UserController');
     Route::resource('project', 'ProjectController');
 });

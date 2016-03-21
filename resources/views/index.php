@@ -180,7 +180,11 @@
                         Projecten<b class="caret"></b>
                     </a>
                     <ul role="menu" class="dropdown-menu">
-                        <li><a tabindex="-1" href="javascript:;"> Updaten / aanpassen / verwijderen </a></li>
+                        <li>
+                            <a tabindex="-1" href="javascript:;" ng-click="hc.goto('adminManageProjects')">
+                                Updaten / aanpassen / verwijderen
+                            </a>
+                        </li>
                     </ul>
                 </li>
 
@@ -238,6 +242,7 @@
 <script src="scripts/controller/admin/studentDetailController.js"></script>
 <script src="scripts/controller/admin/studentFormController.js"></script>
 <script src="scripts/controller/admin/connectStudentToProjectController.js"></script>
+<script src="scripts/controller/admin/manageProjectController.js"></script>
 <script src="scripts/controller/student/manageBlogPostController.js"></script>
 <script src="scripts/controller/student/blogPostFormController.js"></script>
 <script src="scripts/service/authService.js"></script>

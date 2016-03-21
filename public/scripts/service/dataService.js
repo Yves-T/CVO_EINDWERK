@@ -30,6 +30,14 @@ angular
             $http.get('api/project/').success(success).error(error);
         };
 
+        var getAllProjects = function (success, error) {
+            $http.get('api/project/all').success(success).error(error);
+        };
+
+        var toggleActiveProject = function (projectId, success, error) {
+            $http.put('api/project/active/' + projectId).success(success).error(error);
+        };
+
         var connectStudentToProject = function (studentId, projectId, success, error) {
             $http.put('api/student/' + studentId + '/connecProject/' + projectId).success(success).error(error);
         };
@@ -62,6 +70,8 @@ angular
             addStudent: addStudent,
             updateStudent: updateStudent,
             getActiveProjects: getActiveProjects,
+            getAllProjects: getAllProjects,
+            toggleActiveProject: toggleActiveProject,
             connectStudentToProject: connectStudentToProject,
             disconnectStudentToProject: disconnectStudentToProject,
             getPostsForStudent: getPostsForStudent,

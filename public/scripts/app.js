@@ -104,6 +104,11 @@
                     templateUrl: '../views/admin/connectStudentToProject.html',
                     controller: 'StudentToProjectController as stpc'
                 })
+                .state('adminManageProjects', {
+                    url: '/admin_beheer_projecten',
+                    templateUrl: '../views/admin/manageProjects.html',
+                    controller: 'ManageProjectController as mpc'
+                })
                 .state('studentManageBlogPosts', {
                     url: '/student_beheer_blog_posts',
                     templateUrl: '../views/student/manageBlogPosts.html',
