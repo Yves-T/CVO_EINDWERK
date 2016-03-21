@@ -155,7 +155,7 @@
                 <!-- admin user section -->
                 <li class="dropdown" dropdown>
                     <a class="dropdown-toggle" dropdown-toggle toggle-event="mouseover" href="#">
-                        Studenten<b class="caret"></b>
+                        Studentenbeheer<b class="caret"></b>
                     </a>
                     <ul role="menu" class="dropdown-menu">
                         <li>
@@ -167,10 +167,9 @@
                         <li>
                             <a tabindex="-1" href="javascript:;"
                                ng-click="hc.goto('adminManageUserConnectStudentToProject')">
-                                Koppelen met project
+                                Koppelen / ontkoppelen met project
                             </a>
                         </li>
-                        <li><a tabindex="-1" href="#"> Ontkoppelen met project </a></li>
                     </ul>
                 </li>
 
