@@ -20,6 +20,8 @@
         }
 
         var vm = this;
+        vm.messageSuccess = 1;
+        vm.messageError = 1;
         vm.students = [];
         vm.message = $stateParams.message;
         vm.showEmptyResultMessage = false;
@@ -38,8 +40,13 @@
         vm.sortKey = 'user.id';
 
         if (vm.message) {
-            vm.okMessage = (vm.message.message) ? true : false;
-            vm.errorMessage = (vm.message.error) ? true : false;
+            if (vm.message.message) {
+                vm.messageSuccess = 0;
+            }
+
+            if (vm.message.error) {
+                vm.messageError = 0;
+            }
         }
 
         vm.sort = function (keyname) {
