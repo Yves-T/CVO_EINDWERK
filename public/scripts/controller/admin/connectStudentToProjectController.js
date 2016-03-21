@@ -23,6 +23,7 @@
         vm.reverse = false;
         vm.sortKey = 'user.id';
         vm.showConnectStudentToProject = false;
+        vm.disconnectSuccess = 1;
 
         vm.students = [];
         vm.showEmptyResultMessage = false;
@@ -52,11 +53,26 @@
             var student = _.find(vm.students, ['id', studentId]);
             if (student.project) {
                 // disconnect
+                handleDisconnectStudent(student.id);
             } else {
                 // connect
                 handleOpenConnectSection(student);
             }
         };
+
+        function handleDisconnectStudent(studentId) {
+            var dialogResult = confirm("Bent u zeker dat u de student wil loskoppelen?");
+            if (dialogResult) {
+                Data.disconnectStudentToProject(studentId, function (studentId) {
+                    console.log(studentId);
+                    var student = _.find(vm.students, ['id', parseInt(studentId)]);
+                    student.project = null;
+                    vm.disconnectSuccess = 0;
+                }, function (error) {
+                    console.log(error);
+                });
+            }
+        }
 
         function handleOpenConnectSection(student) {
             vm.selectedStudent = student;

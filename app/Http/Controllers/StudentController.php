@@ -145,4 +145,17 @@ class StudentController extends Controller
         $student->update();
         return response()->json($project);
     }
+
+    /**
+     * Disconnect a given student from a given project.
+     * @param $studentId
+     * @param $projectId
+     */
+    public function disconnectStudentFromProject($studentId)
+    {
+        $student = Student::findOrFail($studentId);
+        $student->project_id = null;
+        $student->update();
+        return response()->json($studentId);
+    }
 }

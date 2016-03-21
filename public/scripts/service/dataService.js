@@ -34,6 +34,10 @@ angular
             $http.put('api/student/' + studentId + '/connecProject/' + projectId).success(success).error(error);
         };
 
+        var disconnectStudentToProject = function (studentId, success, error) {
+            $http.put('api/student/' + studentId + '/disconnectProject').success(success).error(error);
+        };
+
         return {
             getAuthenticatedUser: getAuthenticatedUser,
             refreshToken: refreshToken,
@@ -42,6 +46,7 @@ angular
             addStudent: addStudent,
             updateStudent: updateStudent,
             getActiveProjects: getActiveProjects,
-            connectStudentToProject: connectStudentToProject
+            connectStudentToProject: connectStudentToProject,
+            disconnectStudentToProject: disconnectStudentToProject
         };
     }]);

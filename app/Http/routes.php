@@ -12,6 +12,7 @@ Route::group(['prefix' => 'api'], function () {
 
     Route::put('student/active/{id}', 'StudentController@toggleActive');
     Route::put('student/{studentId}/connecProject/{projectId}', 'StudentController@connectToProject');
+    Route::put('student/{studentId}/disconnectProject', 'StudentController@disconnectStudentFromProject');
     Route::resource('student', 'StudentController');
 
     Route::resource('user', 'UserController');
