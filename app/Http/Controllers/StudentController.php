@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Post;
 use App\Project;
 use App\Student;
 use App\User;
@@ -172,5 +173,28 @@ class StudentController extends Controller
         $student->project_id = null;
         $student->update();
         return response()->json($studentId);
+    }
+
+    /**
+     * Persist post and associate with given student.
+     * @param $studentId
+     * @param Request $request
+     * @return mixed
+     */
+    public function addStudentPost($id, Request $request)
+    {
+
+        $user = User::findOrFail($id);
+        $students = $user->students()->take(1)->get();
+        $student = $students[0];
+        $project = $student->project;
+        $blog = $project->blog;
+        $post = new Post();
+        $post->title = $request->postTitle;
+        $post->content = $request->postcontent;
+        $post->student()->associate($student);
+        $post->blog()->associate($blog);
+        $post->save();
+        return response()->json($post->id);
     }
 }

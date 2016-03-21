@@ -6,7 +6,7 @@
         .module('humasol')
         .controller('ManageBlogPostController', ManageBlogPostController);
 
-    function ManageBlogPostController($state, Auth, Data) {
+    function ManageBlogPostController($state, Auth, Data, $stateParams) {
 
         // if the user is not logged in, throw them back to the login page
         if (!Auth.isAuthenticated()) {
@@ -16,6 +16,9 @@
         }
 
         var vm = this;
+        vm.messageSuccess = 1;
+        vm.messageError = 1;
+        vm.message = $stateParams.message;
         vm.blogPosts = [];
         vm.showEmptyResultMessage = false;
         Data.getPostsForStudent(Auth.currentUser().id, function (posts) {
@@ -29,8 +32,18 @@
         vm.errorMessage = false;
         vm.sortKey = 'post.id';
 
-        vm.addPost = function () {
+        if (vm.message) {
+            if (vm.message.message) {
+                vm.messageSuccess = 0;
+            }
 
+            if (vm.message.error) {
+                vm.messageError = 0;
+            }
+        }
+
+        vm.addPost = function () {
+            $state.go('studentBlogPost', {});
         };
 
         vm.deletePost = function () {

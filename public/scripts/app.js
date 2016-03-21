@@ -107,7 +107,13 @@
                 .state('studentManageBlogPosts', {
                     url: '/student_beheer_blog_posts',
                     templateUrl: '../views/student/manageBlogPosts.html',
-                    controller: 'ManageBlogPostController as mbpc'
+                    controller: 'ManageBlogPostController as mbpc',
+                    params: {message: null, error: null}
+                })
+                .state('studentBlogPost', {
+                    url: '/student_blog_post_formulier',
+                    templateUrl: '../views/student/blogPostForm.html',
+                    controller: 'BlogPostFormController as bpfc'
                 });
 
         })

@@ -1,0 +1,25 @@
+<h3>Blog post toevoegen</h3>
+
+<form id="blogpost-form" name="blogPostForm" ng-submit="bpfc.processForm()" novalidate>
+    <div class="form-group">
+        <label for="postTitle">Titel</label>
+        <input required type="text" class="form-control" id="postTitle" name="postTitle"
+               ng-model="bpfc.formData.postTitle" required>
+        <p ng-show="blogPostForm.postTitle.$invalid && !blogPostForm.postTitle.$pristine"
+           class="help-block">
+            De titel van de post is verplicht!
+        </p>
+    </div>
+
+    <div class="form-group">
+        <label>Post inhoud</label>
+        <div text-angular ng-model="bpfc.formData.postcontent" required
+             ta-toolbar="[['h1','h2','h3'],['bold','italics'],['undo','redo'],['ul','ol'],['justifyLeft','justifyCenter','justifyRight']]">
+        </div>
+    </div>
+
+
+    <button type="submit" class="btn btn-primary" ng-disabled="blogPostForm.$invalid">Verzenden</button>
+    <button class="btn btn-default" ng-click="bpfc.goBack()">Annuleren</button>
+
+</form>
