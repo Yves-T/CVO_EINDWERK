@@ -50,8 +50,9 @@
 
         };
 
-        vm.updatePost = function () {
-
+        vm.updatePost = function (id) {
+            var post = _.find(vm.blogPosts, ['id', id]);
+            $state.go('studentBlogPost', {'post': post});
         };
 
         vm.showTable = function () {

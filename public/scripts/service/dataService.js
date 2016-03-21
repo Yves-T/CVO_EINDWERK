@@ -46,6 +46,10 @@ angular
             $http.post('api/student/' + userId + '/post', formData).success(success).error(error);
         };
 
+        var updatePost = function (postId, formData, success, error) {
+            $http.put('api/post/' + postId, formData).success(success).error(error);
+        };
+
         return {
             getAuthenticatedUser: getAuthenticatedUser,
             refreshToken: refreshToken,
@@ -57,6 +61,7 @@ angular
             connectStudentToProject: connectStudentToProject,
             disconnectStudentToProject: disconnectStudentToProject,
             getPostsForStudent: getPostsForStudent,
-            addPostForStudent: addPostForStudent
+            addPostForStudent: addPostForStudent,
+            updatePost: updatePost
         };
     }]);

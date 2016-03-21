@@ -15,6 +15,7 @@ Route::group(['prefix' => 'api'], function () {
     Route::put('student/{studentId}/disconnectProject', 'StudentController@disconnectStudentFromProject');
     Route::get('student/{studentId}/posts', 'StudentController@getBlogPostsForStudent');
     Route::post('student/{id}/post', 'StudentController@addStudentPost');
+    Route::resource('post', 'PostController');
     Route::resource('student', 'StudentController');
 
     Route::resource('user', 'UserController');

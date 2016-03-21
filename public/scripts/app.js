@@ -113,7 +113,8 @@
                 .state('studentBlogPost', {
                     url: '/student_blog_post_formulier',
                     templateUrl: '../views/student/blogPostForm.html',
-                    controller: 'BlogPostFormController as bpfc'
+                    controller: 'BlogPostFormController as bpfc',
+                    params: {post: null}
                 });
 
         })
