@@ -16,13 +16,13 @@
     <nav class="navbar navbar-default yamm" ng-controller="HeaderController as hc">
         <div class="container-fluid">
             <div class="navbar-header">
-                <a class="navbar-brand" href="#">Humasol</a>
+                <a class="navbar-brand" href="javascript:;">Humasol</a>
             </div>
 
             <ul class="nav navbar-nav">
                 <!-- Over ons -->
                 <li class="dropdown open" dropdown>
-                    <a href="#" class="dropdown-toggle" dropdown-toggle toggle-event="mouseover">
+                    <a href="javascript:;" class="dropdown-toggle" dropdown-toggle toggle-event="mouseover">
                         Over ons<b class="caret"></b>
                     </a>
                     <ul class="dropdown-menu">
@@ -49,7 +49,7 @@
             <ul class="nav navbar-nav">
                 <!-- Projecten -->
                 <li class="dropdown open" dropdown>
-                    <a href="#" class="dropdown-toggle" dropdown-toggle toggle-event="mouseover">
+                    <a href="javascript:;" class="dropdown-toggle" dropdown-toggle toggle-event="mouseover">
                         Projecten<b class="caret"></b>
                     </a>
                     <ul class="dropdown-menu">
@@ -91,7 +91,7 @@
             <ul class="nav navbar-nav">
                 <!-- Studenten -->
                 <li class="dropdown open" dropdown>
-                    <a href="#" class="dropdown-toggle" dropdown-toggle toggle-event="mouseover">
+                    <a href="javascript:;" class="dropdown-toggle" dropdown-toggle toggle-event="mouseover">
                         Studenten<b class="caret"></b>
                     </a>
                     <ul class="dropdown-menu">
@@ -132,21 +132,21 @@
             <ul ng-show="currentUser.isAStudent" class="nav navbar-nav">
                 <!-- user profile section -->
                 <li class="dropdown" dropdown>
-                    <a class="dropdown-toggle" dropdown-toggle toggle-event="mouseover" href="#">
+                    <a class="dropdown-toggle" dropdown-toggle toggle-event="mouseover" href="javascript:;">
                         Profiel<b class="caret"></b>
                     </a>
                     <ul role="menu" class="dropdown-menu">
-                        <li><a tabindex="-1" href="#"> Aanpassen </a></li>
+                        <li><a tabindex="-1" href="javascript:;"> Aanpassen </a></li>
                     </ul>
                 </li>
 
                 <li class="dropdown" dropdown>
-                    <a class="dropdown-toggle" dropdown-toggle toggle-event="mouseover" href="#">
+                    <a class="dropdown-toggle" dropdown-toggle toggle-event="mouseover" href="javascript:;">
                         Blog<b class="caret"></b>
                     </a>
                     <ul role="menu" class="dropdown-menu">
                         <li ng-click="hc.goto('studentManageBlogPosts')">
-                            <a tabindex="-1" href="#"> Blog posts beheren </a>
+                            <a tabindex="-1" href="javascript:;"> Blog posts beheren </a>
                         </li>
                     </ul>
                 </li>
@@ -156,7 +156,7 @@
             <ul ng-show="currentUser.isAdmin" class="nav navbar-nav">
                 <!-- admin user section -->
                 <li class="dropdown" dropdown>
-                    <a class="dropdown-toggle" dropdown-toggle toggle-event="mouseover" href="#">
+                    <a class="dropdown-toggle" dropdown-toggle toggle-event="mouseover" href="javascript:;">
                         Studentenbeheer<b class="caret"></b>
                     </a>
                     <ul role="menu" class="dropdown-menu">
@@ -176,20 +176,20 @@
                 </li>
 
                 <li class="dropdown" dropdown>
-                    <a class="dropdown-toggle" dropdown-toggle toggle-event="mouseover" href="#">
+                    <a class="dropdown-toggle" dropdown-toggle toggle-event="mouseover" href="javascript:;">
                         Projecten<b class="caret"></b>
                     </a>
                     <ul role="menu" class="dropdown-menu">
-                        <li><a tabindex="-1" href="#"> Updaten / aanpassen / verwijderen </a></li>
+                        <li><a tabindex="-1" href="javascript:;"> Updaten / aanpassen / verwijderen </a></li>
                     </ul>
                 </li>
 
                 <li class="dropdown" dropdown>
-                    <a class="dropdown-toggle" dropdown-toggle toggle-event="mouseover" href="#">
+                    <a class="dropdown-toggle" dropdown-toggle toggle-event="mouseover" href="javascript:;">
                         Admin<b class="caret"></b>
                     </a>
                     <ul role="menu" class="dropdown-menu">
-                        <li><a tabindex="-1" href="#"> Updaten / aanpassen / verwijderen </a></li>
+                        <li><a tabindex="-1" href="javascript:;"> Updaten / aanpassen / verwijderen </a></li>
                     </ul>
                 </li>
             </ul>
