@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Project;
 use App\Student;
 use DB;
 use Illuminate\Http\Request;
@@ -128,5 +129,20 @@ class StudentController extends Controller
         $student->isActive = $active;
         $student->update();
         return response()->json($id);
+    }
+
+    /**
+     * Connect a given student to a given project.
+     * @param $studentId
+     * @param $projectId
+     * @return mixed
+     */
+    public function connectToProject($studentId, $projectId)
+    {
+        $student = Student::findOrFail($studentId);
+        $project = Project::findOrFail($projectId);
+        $student->project()->associate($project);
+        $student->update();
+        return response()->json($project);
     }
 }

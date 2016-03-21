@@ -98,6 +98,11 @@
                     templateUrl: '../views/admin/addStudent.html',
                     controller: 'StudentFormController as sfc',
                     params: {student: null}
+                })
+                .state('adminManageUserConnectStudentToProject', {
+                    url: '/admin_gebruiker_verbind_student_met_project',
+                    templateUrl: '../views/admin/connectStudentToProject.html',
+                    controller: 'StudentToProjectController as stpc'
                 });
 
         })

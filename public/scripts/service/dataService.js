@@ -26,12 +26,22 @@ angular
             $http.put('api/student/' + id, formData).success(success).error(error);
         };
 
+        var getActiveProjects = function (success, error) {
+            $http.get('api/project/').success(success).error(error);
+        };
+
+        var connectStudentToProject = function (studentId, projectId, success, error) {
+            $http.put('api/student/' + studentId + '/connecProject/' + projectId).success(success).error(error);
+        };
+
         return {
             getAuthenticatedUser: getAuthenticatedUser,
             refreshToken: refreshToken,
             getStudents: getStudents,
             toggleActiveStudent: toggleActiveStudent,
             addStudent: addStudent,
-            updateStudent: updateStudent
+            updateStudent: updateStudent,
+            getActiveProjects: getActiveProjects,
+            connectStudentToProject: connectStudentToProject
         };
     }]);

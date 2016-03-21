@@ -1,0 +1,131 @@
+<div class="col-sm-12">
+    <h3>Koppel studenten met projecten</h3>
+    <div ng-show="stpc.showTable()">
+        <form class="form-inline">
+            <div class="form-group">
+                <label>Zoek</label>
+                <input type="text" ng-model="stpc.search" class="form-control" placeholder="Zoek">
+            </div>
+        </form>
+        <div ng-cloak class="row" ng-show="stpc.okMessage">
+            <div class="col-lg-12">
+                <div class="alert alert-success" role="alert">{{stpc.message.message}}</div>
+            </div>
+        </div>
+
+        <div ng-cloak class="row" ng-show="stpc.errorMessage">
+            <div class="col-lg-12">
+                <div class="alert alert-warning" role="alert">{{stpc.message.error}}</div>
+            </div>
+        </div>
+
+        <table class="table table-striped table-hover">
+            <thead>
+            <tr>
+                <th ng-click="stpc.sort('user.id')">
+                    Id
+                <span class="glyphicon sort-icon" ng-show="stpc.sortKey=='user.id'"
+                      ng-class="{'glyphicon-chevron-up':stpc.reverse,'glyphicon-chevron-down':!stpc.reverse}">
+
+                </span>
+                </th>
+                <th ng-click="stpc.sort('student.firstname')">
+                    Voormaam student
+                <span class="glyphicon sort-icon" ng-show="stpc.sortKey=='student.firstname'"
+                      ng-class="{'glyphicon-chevron-up':stpc.reverse,'glyphicon-chevron-down':!stpc.reverse}">
+
+                </span>
+                </th>
+                <th ng-click="stpc.sort('student.lastname')">
+                    Achtermaam student
+                <span class="glyphicon sort-icon" ng-show="stpc.sortKey=='student.lastname'"
+                      ng-class="{'glyphicon-chevron-up':stpc.reverse,'glyphicon-chevron-down':!stpc.reverse}">
+
+                </span>
+                </th>
+                <th ng-click="stpc.sort('student.project.title')">
+                    Titel project
+                <span class="glyphicon sort-icon" ng-show="stpc.sortKey=='student.project.title'"
+                      ng-class="{'glyphicon-chevron-up':stpc.reverse,'glyphicon-chevron-down':!stpc.reverse}">
+
+                </span>
+                </th>
+                <th>
+                    Koppel
+                </th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr dir-paginate="student in stpc.students|orderBy:stpc.sortKey:stpc.reverse|filter:stpc.search
+        | itemsPerPage:5">
+                <td>{{student.id}}</td>
+                <td><a href="javascript:;" ng-click="stpc.showUserDetail(student.id)">{{student.firstname}}</a></td>
+                <td><a href="javascript:;" ng-click="stpc.showUserDetail(student.id)">{{student.lastname}}</a></td>
+                <td>
+                    <a class="article" href="javascript:;" ng-click="stpc.showUserDetail(student.id)">
+                        {{student.project.title}}
+                    </a>
+                </td>
+                <td>
+                    <button class="btn"
+                            ng-class="{'btn-success': !student.project.title,'btn-danger': student.project.title }"
+                            ng-click="stpc.handleConnect(student.id)">{{student.project.title | connectDisconnect}}
+                    </button>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+        <div class="row">
+            <div class="col-lg-12">
+                <dir-pagination-controls
+                        max-size="5"
+                        direction-links="true"
+                        boundary-links="true">
+                </dir-pagination-controls>
+            </div>
+        </div>
+
+        <div ng-show="stpc.showConnectStudentToProject">
+            <div class="row">
+                <div class="col-lg-6 col-md-6">
+                    <div class="form-group">
+                        <label for="projects">Projecten</label>
+                        <select name="projects" id="projects" ng-model="stpc.selectedProject" class="form-control"
+                                ng-options="project.id as project.title for project in stpc.activeProjects">
+
+                        </select>
+                    </div>
+
+                </div>
+                <div class="col-lg-6 col-md-6">
+                    <div class="form-group">
+                        <label for="selectedStudent">Student naam</label>
+                        <input type="text" class="form-control" id="selectedStudent" value=""
+                               ng-model="stpc.selectedStudentName" readonly>
+                    </div>
+
+                </div>
+            </div>
+
+            <div ng-show="stpc.studentToProjectConnectionError">
+                <div class="alert alert-warning">
+                    Er ging iets mis tijdens het koppelen van de student met het gekozen project.
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-12 col-md-12">
+                    <button class="btn btn-primary" ng-click="stpc.connectStudent()">Koppel student</button>
+                    <button class="btn btn-default">Annuleren</button>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+    <div ng-show="stpc.showEmptyResultMessage">
+        <div class="alert alert-warning">
+            Er zijn geen resultaten beschikbaar.
+        </div>
+    </div>
+</div>

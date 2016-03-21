@@ -11,7 +11,9 @@ Route::group(['prefix' => 'api'], function () {
     Route::get('authenticate/refresh', 'AuthenticateController@refreshToken');
 
     Route::put('student/active/{id}', 'StudentController@toggleActive');
+    Route::put('student/{studentId}/connecProject/{projectId}', 'StudentController@connectToProject');
     Route::resource('student', 'StudentController');
 
     Route::resource('user', 'UserController');
+    Route::resource('project', 'ProjectController');
 });

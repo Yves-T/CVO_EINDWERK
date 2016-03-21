@@ -35,6 +35,19 @@ class DatabaseSeeder extends Seeder
                  healthcare).'
         ));
 
+        $anotherProject = Project::create(array(
+            'title' => 'Finishing the coffee beans humidity sensor project.',
+            'year' => '2016',
+            'partner' => 'And yet another partner',
+            'location' => 'Peru',
+            'isActive' => 1,
+            'longdescription' => 'The goals of this project in 2016 are:
+                Finalize testing and finish final product
+                Perform a solid market analysis
+                Sign contracts with local partners to fabricate, distribute and repair the devices in Peru
+                Start marketing campaign in Jaen, starting in drying centres.'
+        ));
+
         $technologies = array(
             ['name' => 'water'],
             ['name' => 'fire']

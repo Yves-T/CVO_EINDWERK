@@ -164,7 +164,12 @@
                             </a>
                         </li>
                         <li class="divider"></li>
-                        <li><a tabindex="-1" href="#"> Koppelen met project </a></li>
+                        <li>
+                            <a tabindex="-1" href="javascript:;"
+                               ng-click="hc.goto('adminManageUserConnectStudentToProject')">
+                                Koppelen met project
+                            </a>
+                        </li>
                         <li><a tabindex="-1" href="#"> Ontkoppelen met project </a></li>
                     </ul>
                 </li>
@@ -231,9 +236,11 @@
 <script src="scripts/controller/admin/manageUsersController.js"></script>
 <script src="scripts/controller/admin/studentDetailController.js"></script>
 <script src="scripts/controller/admin/studentFormController.js"></script>
+<script src="scripts/controller/admin/connectStudentToProjectController.js"></script>
 <script src="scripts/service/authService.js"></script>
 <script src="scripts/service/dataService.js"></script>
 <script src="scripts/directives/confirmDirective.js"></script>
 <script src="scripts/filter/yesNo.js"></script>
+<script src="scripts/filter/connectButton.js"></script>
 
 </html>
