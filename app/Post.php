@@ -11,9 +11,9 @@ class Post extends Model
         return $this->belongsTo(Blog::class, 'blog_id');
     }
 
-    public function students()
+    public function student()
     {
-        return $this->hasMany(Student::class, 'student_id');
+        return $this->belongsTo(Student::class, 'student_id');
     }
 
     public function comments()

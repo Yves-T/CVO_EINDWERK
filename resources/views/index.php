@@ -145,7 +145,9 @@
                         Blog<b class="caret"></b>
                     </a>
                     <ul role="menu" class="dropdown-menu">
-                        <li><a tabindex="-1" href="#"> Blog posts beheren </a></li>
+                        <li ng-click="hc.goto('studentManageBlogPosts')">
+                            <a tabindex="-1" href="#"> Blog posts beheren </a>
+                        </li>
                     </ul>
                 </li>
             </ul>
@@ -236,6 +238,7 @@
 <script src="scripts/controller/admin/studentDetailController.js"></script>
 <script src="scripts/controller/admin/studentFormController.js"></script>
 <script src="scripts/controller/admin/connectStudentToProjectController.js"></script>
+<script src="scripts/controller/student/manageBlogPostController.js"></script>
 <script src="scripts/service/authService.js"></script>
 <script src="scripts/service/dataService.js"></script>
 <script src="scripts/directives/confirmDirective.js"></script>

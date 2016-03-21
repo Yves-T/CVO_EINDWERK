@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Project;
 use App\Student;
+use App\User;
 use DB;
 use Illuminate\Http\Request;
 
@@ -29,6 +30,20 @@ class StudentController extends Controller
             $student->project;
         }
         return response()->json($students);
+    }
+
+    /**
+     * Get posts for given student id.
+     * @param $id
+     * @return mixed
+     */
+    public function getBlogPostsForStudent($id)
+    {
+        $user = User::findOrFail($id);
+        $students = $user->students()->take(1)->get();
+        $student = $students[0];
+        $posts = $student->posts;
+        return response()->json($posts);
     }
 
     /**

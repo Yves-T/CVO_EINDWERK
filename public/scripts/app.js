@@ -103,6 +103,11 @@
                     url: '/admin_gebruiker_verbind_student_met_project',
                     templateUrl: '../views/admin/connectStudentToProject.html',
                     controller: 'StudentToProjectController as stpc'
+                })
+                .state('studentManageBlogPosts', {
+                    url: '/student_beheer_blog_posts',
+                    templateUrl: '../views/student/manageBlogPosts.html',
+                    controller: 'ManageBlogPostController as mbpc'
                 });
 
         })

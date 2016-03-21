@@ -16,8 +16,8 @@ class Student extends Model
         return $this->belongsTo(Project::class, 'project_id');
     }
 
-    public function post()
+    public function posts()
     {
-        return $this->belongsTo(Post::class, 'student_id');
+        return $this->hasMany(Post::class, 'student_id');
     }
 }
