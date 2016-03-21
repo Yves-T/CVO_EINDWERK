@@ -60,7 +60,7 @@
             </thead>
             <tbody>
             <tr dir-paginate="student in muc.students|orderBy:muc.sortKey:muc.reverse|filter:muc.search
-        | itemsPerPage:5">
+        | itemsPerPage:5" pagination-id="manageUsersPagination">
                 <td>{{student.id}}</td>
                 <td><a href="javascript:;" ng-click="muc.showUserDetail(student.id)">{{student.firstname}}</a></td>
                 <td><a href="javascript:;" ng-click="muc.showUserDetail(student.id)">{{student.lastname}}</a></td>
@@ -84,6 +84,7 @@
         <div class="row">
             <div class="col-lg-12">
                 <dir-pagination-controls
+                        pagination-id="manageUsersPagination"
                         max-size="5"
                         direction-links="true"
                         boundary-links="true">
