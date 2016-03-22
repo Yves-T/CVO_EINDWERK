@@ -245,6 +245,7 @@
 <script src="scripts/controller/admin/connectStudentToProjectController.js"></script>
 <script src="scripts/controller/admin/manageProjectController.js"></script>
 <script src="scripts/controller/admin/projectFormController.js"></script>
+<script src="scripts/controller/admin/projectDetailController.js"></script>
 <script src="scripts/controller/student/manageBlogPostController.js"></script>
 <script src="scripts/controller/student/blogPostFormController.js"></script>
 <script src="scripts/service/authService.js"></script>

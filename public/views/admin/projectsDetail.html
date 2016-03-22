@@ -1,0 +1,70 @@
+<h3>Project detail</h3>
+<div class="row" ng-show="pdc.project.id">
+    <div class="col-lg-12">
+        <p><strong>Project titel :</strong> {{pdc.student.firstname}}</p>
+        <p><strong>Jaar :</strong> {{pdc.project.year}}</p>
+        <p><strong>Locatie :</strong> {{pdc.project.location}}</p>
+        <p><strong>Is actief :</strong> {{pdc.project.isActive | yesNo}}</p>
+        <p><strong>Aangemaakt op :</strong> {{pdc.createdAt}}</p>
+        <p><strong>Laatst aangepast op :</strong> {{pdc.updatedAt}}</p>
+    </div>
+</div>
+
+<h3 ng-show="pdc.project.sponsors">Sponsors</h3>
+<div class="row" ng-show="pdc.project.sponsors">
+    <div class="col-lg-12">
+        <ul>
+            <li ng-repeat="sponsor in pdc.project.sponsors track by $index">{{sponsor.name}}</li>
+        </ul>
+    </div>
+</div>
+
+<h3 ng-show="pdc.project.technologies">Technologie&euml;n</h3>
+<div class="row" ng-show="pdc.project.technologies">
+    <div class="col-lg-12">
+        <ul>
+            <li ng-repeat="technology in pdc.project.technologies track by $index">
+                {{technology.name}}
+            </li>
+        </ul>
+    </div>
+</div>
+
+<h3 ng-show="pdc.students">Studenten aan het project verbonden</h3>
+<div class="row" ng-show="pdc.students">
+    <div class="col-lg-12">
+        <ul>
+            <li ng-repeat="student in pdc.students track by $index">
+                {{student.firstname}}&nbsp;{{student.lastname}}
+            </li>
+        </ul>
+    </div>
+</div>
+
+<h3 ng-show="pdc.project.longdescription">Project lange omschrijving</h3>
+<div class="row" ng-show="pdc.project.longdescription">
+    <div class="col-lg-12">
+        {{pdc.project.longdescription}}
+    </div>
+</div>
+
+<h3 ng-show="pdc.project.image">Afbeelding</h3>
+<div class="row" ng-show="pdc.project.image">
+    <div class="col-lg-12">
+        <img ng-src="{{pdc.image}}" width="200px" class="thumbnail" alt="foto project">
+    </div>
+</div>
+
+<div class="row" ng-hide="pdc.project.id">
+    <div class="alert alert-warning">
+        <p>Er zijn geen resultaten voor deze student</p>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-12">
+        <button class="btn btn-default" ng-click="pdc.goBack()">Ga terug naar het project overzicht</button>
+    </div>
+</div>
+
+<br>

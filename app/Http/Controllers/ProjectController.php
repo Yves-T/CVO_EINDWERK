@@ -17,7 +17,9 @@ class ProjectController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('jwt.auth');
+        $this->middleware('jwt.auth', ['except' => [
+            'viewFile'
+        ]]);
     }
 
     public function index()
@@ -187,5 +189,33 @@ class ProjectController extends Controller
         $projects = Project::with('technologies')->with('sponsors')->get();
 
         return response()->json($projects);
+    }
+
+    /**
+     * View file of a given project
+     * @param $name
+     * @return mixed
+     */
+    public function viewFile($id)
+    {
+        $project = Project::findOrFail($id);
+        $fileName = $project->image;
+        if (isset($fileName) && !empty($fileName)) {
+            return response()->make(Storage::get($fileName), 200, [
+                'Content-Type' => Storage::mimeType($fileName),
+                'Content-Disposition' => 'inline; ' . $fileName,
+            ]);
+        } else {
+            return response()->json(false);
+        }
+    }
+
+    /**
+     * Get al students for a given project
+     */
+    public function getProjectStudents($id)
+    {
+        $project = Project::findOrFail($id);
+        return response()->json($project->students);
     }
 }

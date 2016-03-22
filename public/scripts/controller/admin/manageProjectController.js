@@ -62,6 +62,10 @@
             $state.go('adminCreateUpdateProject', {'project': project});
         };
 
+        vm.showProjectDetail = function (projectId) {
+            var project = _.find(vm.projects, ['id', projectId]);
+            $state.go('adminProjectDetail', {'project': project});
+        };
 
         vm.sort = function (keyname) {
             vm.sortKey = keyname;

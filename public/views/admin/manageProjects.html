@@ -43,7 +43,7 @@
             <tr dir-paginate="project in mpc.projects|orderBy:mpc.sortKey:mpc.reverse|filter:mpc.search
         | itemsPerPage:5" pagination-id="manageProjectsPagination">
                 <td>{{project.id}}</td>
-                <td>{{project.title}}</td>
+                <td><a href="javascript:;" ng-click="mpc.showProjectDetail(project.id)">{{project.title}}</a></td>
                 <td>
                     <button class="btn btn-success"
                             ng-click="mpc.updateProject(project.id)">Aanpassen

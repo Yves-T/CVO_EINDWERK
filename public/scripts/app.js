@@ -117,6 +117,12 @@
                     controller: 'ProjectFormController as pfc',
                     params: {project: null}
                 })
+                .state('adminProjectDetail', {
+                    url: '/admin_project_detail',
+                    templateUrl: '../views/admin/projectsDetail.html',
+                    controller: 'ProjectDetailController as pdc',
+                    params: {project: null}
+                })
                 .state('studentManageBlogPosts', {
                     url: '/student_beheer_blog_posts',
                     templateUrl: '../views/student/manageBlogPosts.html',

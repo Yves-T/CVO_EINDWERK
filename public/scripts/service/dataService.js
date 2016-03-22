@@ -78,6 +78,10 @@ angular
             $http.post('api/project/create', data).success(success).error(error);
         };
 
+        var getStudentsForProject = function (id, success, error) {
+            $http.get('api/project/' + id + '/student').success(success).error(error);
+        };
+
         return {
             getAuthenticatedUser: getAuthenticatedUser,
             refreshToken: refreshToken,
@@ -97,6 +101,7 @@ angular
             getTechnologies: getTechnologies,
             getSponsors: getSponsors,
             updateProject: updateProject,
-            createProject: createProject
+            createProject: createProject,
+            getStudentsForProject: getStudentsForProject
         };
     }]);
