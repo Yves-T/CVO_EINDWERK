@@ -31,6 +31,7 @@ class UserController extends Controller
         $user->name = $request->studentFirstName . ' ' . $request->studentLasttName;
         $user->email = $request->studentEmail;
         $user->password = bcrypt($request->studentPassword);
+        $user->isAStudent = 1;
 
         $student->firstname = $request->studentFirstName;
         $student->lastname = $request->studentLastName;
