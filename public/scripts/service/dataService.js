@@ -19,7 +19,7 @@ angular
         };
 
         var addStudent = function (formData, success, error) {
-            $http.post('api/user/', formData).success(success).error(error);
+            $http.post('api/createUser', formData).success(success).error(error);
         };
 
         var updateStudent = function (id, formData, success, error) {
