@@ -168,7 +168,26 @@
         };
 
         function handleUpdateFile(file) {
+            file.upload = Upload.upload({
+                url: 'api/project/updateFile/' + vm.project.id,
+                data: {formData: vm.formData, file: file}
+            });
 
+            file.upload.then(function (response) {
+                $timeout(function () {
+                    file.result = response.data;
+                });
+            }, function (response) {
+                if (response.status > 0) {
+                    vm.errorMsg = response.status + ': ' + response.data;
+                    handleUpdateRequestFail();
+                }
+            }, function (evt) {
+                file.progress = Math.min(100, parseInt(100.0 * evt.loaded / evt.total));
+                if (evt.loaded / evt.total === 1) {
+                    handleUpdateRequestSuccess();
+                }
+            });
         }
 
         function handleUpdateWithoutFile() {

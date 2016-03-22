@@ -86,6 +86,28 @@ class ProjectController extends Controller
     {
         DB::beginTransaction();
         $project = Project::findOrFail($id);
+        $file = $request->file('file');
+
+        // if there was already a file upload and there is a new file
+        // delete the existing file
+        if (isset($project->image) && isset($file)) {
+            Storage::delete($project->image);
+        }
+
+        if (isset($file)) {
+            Storage::put($file->getClientOriginalName(), File::get($file));
+            $project->image = $file->getClientOriginalName();
+        }
+
+        $this->updateProject($request, $project);
+
+        DB::commit();
+
+        return response()->json($request);
+    }
+
+    private function updateProject($request, $project)
+    {
         $project->sponsors()->detach();
         $project->technologies()->detach();
 
@@ -115,6 +137,27 @@ class ProjectController extends Controller
             }
             $project->technologies()->saveMany($foundTechnologies);
         }
+    }
+
+
+    function updateWithFile($id, Request $request)
+    {
+        DB::beginTransaction();
+        $project = Project::findOrFail($id);
+        $file = $request->file('file');
+
+        // if there was already a file upload and there is a new file
+        // delete the existing file
+        if (isset($project->image) && !empty($project->image) && isset($file)) {
+            Storage::delete($project->image);
+        }
+
+        if (isset($file)) {
+            Storage::put($file->getClientOriginalName(), File::get($file));
+            $project->image = $file->getClientOriginalName();
+        }
+
+        $this->updateProject($request, $project);
 
         DB::commit();
 
