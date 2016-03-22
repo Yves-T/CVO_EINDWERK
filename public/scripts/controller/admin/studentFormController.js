@@ -52,6 +52,7 @@
         };
 
         function handleStudentUpdate() {
+            handleActiveStateStudent();
             Data.updateStudent($stateParams.student.id, vm.formData, function (result) {
                 $state.go('adminManageUsers', {
                         message: {
@@ -74,7 +75,16 @@
             });
         }
 
+        function handleActiveStateStudent() {
+            if (!vm.formData.studentActive) {
+                vm.formData.studentActive = 0;
+            } else {
+                vm.formData.studentActive = 1;
+            }
+        }
+
         function handleCreateStudent() {
+            handleActiveStateStudent();
             Data.addStudent(vm.formData, function (result) {
                 $state.go('adminManageUsers', {
                         message: {
