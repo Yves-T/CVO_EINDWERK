@@ -74,6 +74,10 @@ angular
             $http.put('api/project/update/' + id, data).success(success).error(error);
         };
 
+        var createProject = function (data, success, error) {
+            $http.post('api/project/create', data).success(success).error(error);
+        };
+
         return {
             getAuthenticatedUser: getAuthenticatedUser,
             refreshToken: refreshToken,
@@ -92,6 +96,7 @@ angular
             deletePost: deletePost,
             getTechnologies: getTechnologies,
             getSponsors: getSponsors,
-            updateProject: updateProject
+            updateProject: updateProject,
+            createProject: createProject
         };
     }]);

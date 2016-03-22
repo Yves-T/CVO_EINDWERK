@@ -181,7 +181,7 @@
         }
 
         function handleFormUploadWithoutFile() {
-            $http.post('api/project/create', {formData: vm.formData}).success(function (success) {
+            Data.createProject({formData: vm.formData}, function (success) {
                 handleRequestSuccess();
             }, function (error) {
                 console.log(error);
