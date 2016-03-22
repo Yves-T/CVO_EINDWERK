@@ -82,6 +82,45 @@ class ProjectController extends Controller
         return response()->json($request);
     }
 
+    function update($id, Request $request)
+    {
+        DB::beginTransaction();
+        $project = Project::findOrFail($id);
+        $project->sponsors()->detach();
+        $project->technologies()->detach();
+
+        $project->title = $request->formData['projectTitle'];
+        $project->isActive = $request->formData['projectActive'];
+        $project->location = $request->formData['projectLocation'];
+        $project->year = $request->formData['projectYear'];
+        $project->longdescription = $request->formData['projectdescription'];
+        $project->update();
+
+        if (isset($request->formData['selectedSponsors'])) {
+            $sponsors = $request->formData['selectedSponsors'];
+            $foundSponsors = [];
+            foreach ($sponsors as $sponsor) {
+                $foundSponsor = Sponsor::find($sponsor['id']);
+                array_push($foundSponsors, $foundSponsor);
+            }
+            $project->sponsors()->saveMany($foundSponsors);
+        }
+
+        if (isset($request->formData['selectedTechnologies'])) {
+            $technologies = $request->formData['selectedTechnologies'];
+            $foundTechnologies = [];
+            foreach ($technologies as $technology) {
+                $foundTechnology = Tecnology::find($technology['id']);
+                array_push($foundTechnologies, $foundTechnology);
+            }
+            $project->technologies()->saveMany($foundTechnologies);
+        }
+
+        DB::commit();
+
+        return response()->json($request);
+    }
+
     /**
      * Toglle the acctive status of a project.
      * @param $id
@@ -102,7 +141,8 @@ class ProjectController extends Controller
      */
     public function getAllProjects()
     {
-        $projects = Project::with('technologies')->get();
+        $projects = Project::with('technologies')->with('sponsors')->get();
+
         return response()->json($projects);
     }
 }

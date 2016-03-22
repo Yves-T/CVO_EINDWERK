@@ -57,8 +57,9 @@
             });
         };
 
-        vm.updateProject = function () {
-
+        vm.updateProject = function (projectId) {
+            var project = _.find(vm.projects, ['id', projectId]);
+            $state.go('adminCreateUpdateProject', {'project': project});
         };
 
 

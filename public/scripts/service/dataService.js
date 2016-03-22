@@ -70,6 +70,10 @@ angular
             $http.get('api/sponsor/').success(success).error(error);
         };
 
+        var updateProject = function (id, data, success, error) {
+            $http.put('api/project/update/' + id, data).success(success).error(error);
+        };
+
         return {
             getAuthenticatedUser: getAuthenticatedUser,
             refreshToken: refreshToken,
@@ -87,6 +91,7 @@ angular
             updatePost: updatePost,
             deletePost: deletePost,
             getTechnologies: getTechnologies,
-            getSponsors: getSponsors
+            getSponsors: getSponsors,
+            updateProject: updateProject
         };
     }]);

@@ -20,7 +20,9 @@
         }
 
         var vm = this;
-        vm.project = null;
+        vm.project = $stateParams.project;
+        vm.projectIsUpdating = ($stateParams.project) ? true : false;
+
         vm.selectedTechnologies = [];
         vm.disableTechnology = false;
 
@@ -28,6 +30,10 @@
         Data.getTechnologies(function (technologies) {
             vm.technologies = technologies;
             updateTechnologyComboSelection();
+            if (vm.projectIsUpdating) {
+                filterCollection(vm.selectedTechnologies, vm.technologies);
+                vm.disableTechnology = vm.technologies.length === 0;
+            }
         }, function (error) {
             console.log(error);
         });
@@ -38,9 +44,40 @@
         Data.getSponsors(function (sponsors) {
             vm.sponsors = sponsors;
             updateSponsorComboSelection();
+            filterCollection(vm.selectedSponsors, vm.sponsors);
+            vm.disableSponsor = vm.sponsors.length === 0;
         }, function (error) {
             console.log(error);
         });
+
+        // if project is transer necessary data to form
+        if ($stateParams.project) {
+            var project = $stateParams.project;
+            vm.formData = {
+                "projectTitle": project.title,
+                "projectYear": project.year,
+                "projectLocation": project.location,
+                "projectActive": project.isActive,
+                "projectdescription": project.longdescription
+            };
+            vm.selectedTechnologies = project.technologies;
+            vm.selectedSponsors = project.sponsors;
+        }
+
+        function filterCollection(projectCollection, comboCollection) {
+            var itemsToRemove = [];
+            _.forEach(comboCollection, function (comboItem) {
+                _.forEach(projectCollection, function (projectItem) {
+                    if (comboItem.id === projectItem.id) {
+                        itemsToRemove.push(comboItem);
+                    }
+                });
+            });
+
+            _.forEach(itemsToRemove, function (someItem) {
+                comboCollection.splice(comboCollection.indexOf((someItem)), 1);
+            });
+        }
 
         vm.addTechnology = function () {
             vm.selectedTechnologies.push(vm.selectedTechnology);
@@ -111,11 +148,37 @@
             }
 
             if (file) {
-                handleFormUpload(file);
+                if (vm.projectIsUpdating) {
+                    // handle update project with file
+                    handleUpdateFile(file);
+                } else {
+                    // handle create project without file
+                    handleFormUpload(file);
+                }
+
             } else {
-                handleFormUploadWithoutFile();
+                if (vm.projectIsUpdating) {
+                    // handle update project without file
+                    handleUpdateWithoutFile();
+                } else {
+                    // handle create project without file
+                    handleFormUploadWithoutFile();
+                }
             }
         };
+
+        function handleUpdateFile(file) {
+
+        }
+
+        function handleUpdateWithoutFile() {
+            Data.updateProject(vm.project.id, {formData: vm.formData}, function (success) {
+                handleUpdateRequestSuccess();
+            }, function (error) {
+                console.log(error);
+                handleUpdateRequestFail();
+            });
+        }
 
         function handleFormUploadWithoutFile() {
             $http.post('api/project/create', {formData: vm.formData}).success(function (success) {
@@ -163,6 +226,24 @@
                 message: {
                     "message": null,
                     "error": 'Er ging iets mis tijdens het aanmaken van het project'
+                }
+            });
+        }
+
+        function handleUpdateRequestSuccess() {
+            $state.go('adminManageProjects', {
+                message: {
+                    "message": 'Het project is met success aangepast.',
+                    "error": null
+                }
+            });
+        }
+
+        function handleUpdateRequestFail() {
+            $state.go('adminManageProjects', {
+                message: {
+                    "message": null,
+                    "error": 'Er ging iets mis tijdens het updaten van het project'
                 }
             });
         }
