@@ -29,11 +29,11 @@
         vm.technologies = [];
         Data.getTechnologies(function (technologies) {
             vm.technologies = technologies;
-            updateTechnologyComboSelection();
             if (vm.projectIsUpdating) {
                 filterCollection(vm.selectedTechnologies, vm.technologies);
                 vm.disableTechnology = vm.technologies.length === 0;
             }
+            updateTechnologyComboSelection();
         }, function (error) {
             console.log(error);
         });
@@ -43,9 +43,9 @@
         vm.sponsors = [];
         Data.getSponsors(function (sponsors) {
             vm.sponsors = sponsors;
-            updateSponsorComboSelection();
             filterCollection(vm.selectedSponsors, vm.sponsors);
             vm.disableSponsor = vm.sponsors.length === 0;
+            updateSponsorComboSelection();
         }, function (error) {
             console.log(error);
         });
