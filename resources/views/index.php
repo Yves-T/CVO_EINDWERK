@@ -230,6 +230,7 @@
 <script src='node_modules/textangular/dist/textAngular-rangy.min.js'></script>
 <script src='node_modules/textangular/dist/textAngular-sanitize.min.js'></script>
 <script src='node_modules/textangular/dist/textAngular.min.js'></script>
+<script src='node_modules/ng-file-upload/dist/ng-file-upload.min.js'></script>
 <script src='js/angular-mega-menu.js'></script>
 
 <!-- Application Scripts -->
@@ -243,6 +244,7 @@
 <script src="scripts/controller/admin/studentFormController.js"></script>
 <script src="scripts/controller/admin/connectStudentToProjectController.js"></script>
 <script src="scripts/controller/admin/manageProjectController.js"></script>
+<script src="scripts/controller/admin/projectFormController.js"></script>
 <script src="scripts/controller/student/manageBlogPostController.js"></script>
 <script src="scripts/controller/student/blogPostFormController.js"></script>
 <script src="scripts/service/authService.js"></script>

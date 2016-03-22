@@ -62,6 +62,14 @@ angular
             $http.delete('api/post/' + postId).success(success).error(error);
         };
 
+        var getTechnologies = function (success, error) {
+            $http.get('api/technology/').success(success).error(error);
+        };
+
+        var getSponsors = function (success, error) {
+            $http.get('api/sponsor/').success(success).error(error);
+        };
+
         return {
             getAuthenticatedUser: getAuthenticatedUser,
             refreshToken: refreshToken,
@@ -77,6 +85,8 @@ angular
             getPostsForStudent: getPostsForStudent,
             addPostForStudent: addPostForStudent,
             updatePost: updatePost,
-            deletePost: deletePost
+            deletePost: deletePost,
+            getTechnologies: getTechnologies,
+            getSponsors: getSponsors
         };
     }]);

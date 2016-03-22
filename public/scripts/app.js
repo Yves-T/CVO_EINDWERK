@@ -11,7 +11,8 @@
             'ngAnimate',
             'ui.bootstrap',
             'ui.bootstrap.dropdown',
-            'mega-menu'
+            'mega-menu',
+            'ngFileUpload'
 
         ])
         .config(function ($stateProvider, $urlRouterProvider, $authProvider, $httpProvider, $provide) {
@@ -107,7 +108,14 @@
                 .state('adminManageProjects', {
                     url: '/admin_beheer_projecten',
                     templateUrl: '../views/admin/manageProjects.html',
-                    controller: 'ManageProjectController as mpc'
+                    controller: 'ManageProjectController as mpc',
+                    params: {message: null, error: null}
+                })
+                .state('adminCreateUpdateProject', {
+                    url: '/admin_project_formulier',
+                    templateUrl: '../views/admin/projectsForm.html',
+                    controller: 'ProjectFormController as pfc',
+                    params: {project: null}
                 })
                 .state('studentManageBlogPosts', {
                     url: '/student_beheer_blog_posts',

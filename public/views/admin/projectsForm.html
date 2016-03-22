@@ -1,0 +1,157 @@
+<h3>Project toevoegen</h3>
+
+<form id="project-form" name="projectForm" ng-submit="pfc.processForm()" novalidate>
+
+    <!--project title-->
+    <div class="form-group">
+        <label for="projectYear">Titel</label>
+        <input type="text" class="form-control" id="projectTitle" name="projectTitle"
+               ng-model="pfc.formData.projectTitle" required>
+        <p ng-show="projectForm.projectTitle.$invalid && !projectForm.projectTitle.$pristine"
+           class="help-block">
+            De project titel is verplicht
+        </p>
+    </div>
+
+    <!--project year-->
+    <div class="form-group">
+        <label for="projectYear">Jaar</label>
+        <input type="text" class="form-control" id="projectYear" name="projectYear" ng-change="pfc.yearChanged()"
+               ng-model="pfc.formData.projectYear" required>
+        <p ng-show="projectForm.projectYear.$invalid && !projectForm.projectYear.$pristine"
+           class="help-block">
+            Gelieve een geldig jaar in te geven
+        </p>
+        <p ng-show="pfc.yearError" class="help-block">Het jaar moet tussen 1970 en 2016 liggen</p>
+        <p ng-show="projectForm.projectYear.$error.minlength || projectForm.projectYear.$error.maxlength"
+           class="help-block">Jaartal heeft een ongeldige lengte.</p>
+    </div>
+
+    <!--project location-->
+    <div class="form-group">
+        <label for="projectLocation">Locatie</label>
+        <input type="text" class="form-control" id="projectLocation" name="projectLocation"
+               ng-model="pfc.formData.projectLocation" required>
+        <p ng-show="projectForm.projectLocation.$invalid && !projectForm.projectLocation.$pristine"
+           class="help-block">
+            De project locatie is verplicht
+        </p>
+    </div>
+
+    <!--project active-->
+    <div class="form-group">
+        <label for="projectActive">Activeren</label>
+        <input type="checkbox" class="form-control" id="projectActive" name="projectActive"
+               ng-model="pfc.formData.projectActive">
+    </div>
+
+    <hr>
+
+    <!--technology-->
+    <div class="row">
+        <div class="col-md-6 col-lg-6">
+            <label>Technologie</label>
+            <div class="input-group">
+
+                <select ng-disabled="pfc.disableTechnology" name="technologies" id="technologies"
+                        ng-model="pfc.selectedTechnology" class="form-control"
+                        ng-options="technology as technology.name for technology in pfc.technologies">
+
+                </select>
+                <div class="input-group-btn">
+                    <button class="btn btn-success" style="margin-left: 15px;" ng-click="pfc.addTechnology()"
+                            ng-disabled="pfc.disableTechnology">
+                        Voeg technologie toe
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-12 col-md-12">
+            <ul>
+                <li ng-repeat="technology in pfc.selectedTechnologies track by $index">
+                    {{technology.name}}
+                    <span ng-click="pfc.deleteTechnology($index, $event)"><i class="fa fa-trash"></i></span>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!--end technology-->
+
+    <!--sponsors-->
+    <div class="row">
+        <div class="col-md-6 col-lg-6">
+            <label>Partners</label>
+            <div class="input-group">
+
+                <select ng-disabled="pfc.disableSponsor" name="sponsors" id="sponsors"
+                        ng-model="pfc.selectedSponsor" class="form-control"
+                        ng-options="sponsor as sponsor.name for sponsor in pfc.sponsors">
+
+                </select>
+                <div class="input-group-btn">
+                    <button class="btn btn-success" style="margin-left: 15px;" ng-click="pfc.addSponsor()"
+                            ng-disabled="pfc.disableSponsor">
+                        Voeg sponsor toe
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-12 col-md-12">
+            <ul>
+                <li ng-repeat="sponsor in pfc.selectedSponsors track by $index">
+                    {{sponsor.name}}
+                    <span ng-click="pfc.deleteSponsor($index, $event)"><i class="fa fa-trash"></i></span>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!--project description-->
+    <div class="form-group">
+        <label>Project lange omschrijving</label>
+        <div text-angular ng-model="pfc.formData.projectdescription" required
+             ta-toolbar="[['h1','h2','h3'],['bold','italics'],['undo','redo'],['ul','ol'],['justifyLeft','justifyCenter','justifyRight']]">
+        </div>
+    </div>
+
+    <!--image-->
+    <div class="form-group">
+        <label for="file">Foto</label>
+        <input type="file" ngf-select ng-model="pfc.picFile" name="file" id="file" class="form-control"
+               accept="image/*" ngf-max-size="4MB" ngf-model-invalid="pfc.errorFile">
+        <i ng-show="projectForm.file.$error.maxSize">Het bestand is te groot!
+            {{pfc.errorFile.size / 1000000|number:1}}MB: max 4M</i>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-12 col-md-12">
+            <img ng-show="projectForm.file.$valid" ngf-thumbnail="pfc.picFile" class="thumb">
+            <span ng-click="pfc.picFile = null" ng-show="pfc.picFile"><i class="fa fa-trash"></i></span>
+        </div>
+    </div>
+
+    <hr>
+
+    <div class="progress" ng-show="pfc.picFile.progress >= 0">
+        <div class="progress-bar" role="progressbar" aria-valuenow="70"
+             aria-valuemin="0" aria-valuemax="100" style="width:{{pfc.picFile.progress}}%">
+            <span class="sr-only">70% Complete</span>
+        </div>
+    </div>
+
+    <span ng-show="pfc.picFile.result">Het formulier is volledig verzonden</span>
+    <span class="err" ng-show="errorMsg">{{pfc.errorMsg}}</span>
+
+    <button type="submit" class="btn btn-primary" ng-disabled="projectForm.$invalid"
+            ng-click="pfc.uploadForm(pfc.picFile)">
+        Verzenden
+    </button>
+    <button class="btn btn-default" ng-click="pfc.goBack()">Annuleren</button>
+
+</form>

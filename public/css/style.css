@@ -6,3 +6,10 @@ header[role="banner"] #logo-main {
 .help-block {
     color: red;
 }
+
+.thumb {
+    width: 100px;
+    float: none;
+    position: relative;
+    top: 7px;
+}

@@ -22,6 +22,7 @@
         var vm = this;
         vm.messageSuccess = 1;
         vm.messageError = 1;
+        vm.message = $stateParams.message;
         vm.projects = [];
         vm.showEmptyResultMessage = false;
         Data.getAllProjects(function (projects) {
@@ -33,8 +34,18 @@
 
         vm.reverse = false;
 
-        vm.addProject = function () {
+        if (vm.message) {
+            if (vm.message.message) {
+                vm.messageSuccess = 0;
+            }
 
+            if (vm.message.error) {
+                vm.messageError = 0;
+            }
+        }
+
+        vm.addProject = function () {
+            $state.go('adminCreateUpdateProject', {'project': null});
         };
 
         vm.toggleActive = function (id) {

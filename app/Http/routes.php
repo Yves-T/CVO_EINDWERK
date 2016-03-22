@@ -20,6 +20,10 @@ Route::group(['prefix' => 'api'], function () {
 
     Route::get('project/all', 'ProjectController@getAllProjects');
     Route::put('project/active/{id}', 'ProjectController@toggleActive');
+    Route::post('project/create', 'ProjectController@create');
+
     Route::resource('user', 'UserController');
     Route::resource('project', 'ProjectController');
+    Route::resource('technology', 'TechnologyController');
+    Route::resource('sponsor', 'SponsorController');
 });
