@@ -221,6 +221,7 @@
 <script src="bower_components/jquery/dist/jquery.min.js"></script>
 <script src="node_modules/lodash/lodash.min.js"></script>
 <script src="node_modules/moment/min/moment.min.js"></script>
+<script src="node_modules/moment/locale/nl.js"></script>
 <script src="node_modules/angular/angular.js"></script>
 <script src="node_modules/angular-ui-router/release/angular-ui-router.js"></script>
 <script src="node_modules/angular-animate/angular-animate.min.js"></script>

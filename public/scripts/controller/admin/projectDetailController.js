@@ -23,10 +23,11 @@
         var vm = this;
         vm.project = $stateParams.project;
         if (vm.project) {
+            moment.locale('nl', null);
             var createdAt = moment(vm.project.created_at);
-            vm.createdAt = createdAt.format("DD/MM/YYYY, [om] h:mm:ss a");
+            vm.createdAt = createdAt.locale('nl').format("LLL");
             var updatedAt = moment(vm.project.updated_at);
-            vm.updatedAt = updatedAt.format("DD/MM/YYYY, [om] h:mm:ss a");
+            vm.updatedAt = updatedAt.locale('nl').format("LLL");
             vm.image = 'api/project/viewFile/' + vm.project.id;
             Data.getStudentsForProject(vm.project.id, function (students) {
                 vm.students = students;
