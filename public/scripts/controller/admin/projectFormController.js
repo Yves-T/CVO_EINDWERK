@@ -177,6 +177,7 @@
                 $timeout(function () {
                     file.result = response.data;
                 });
+                handleUpdateRequestSuccess();
             }, function (response) {
                 if (response.status > 0) {
                     vm.errorMsg = response.status + ': ' + response.data;
@@ -184,9 +185,6 @@
                 }
             }, function (evt) {
                 file.progress = Math.min(100, parseInt(100.0 * evt.loaded / evt.total));
-                if (evt.loaded / evt.total === 1) {
-                    handleUpdateRequestSuccess();
-                }
             });
         }
 
@@ -218,6 +216,7 @@
                 $timeout(function () {
                     file.result = response.data;
                 });
+                handleRequestSuccess();
             }, function (response) {
                 if (response.status > 0) {
                     vm.errorMsg = response.status + ': ' + response.data;
@@ -225,9 +224,6 @@
                 }
             }, function (evt) {
                 file.progress = Math.min(100, parseInt(100.0 * evt.loaded / evt.total));
-                if (evt.loaded / evt.total === 1) {
-                    handleRequestSuccess();
-                }
             });
         }
 
