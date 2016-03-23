@@ -78,6 +78,12 @@
                     templateUrl: '../views/activeProjectsView.html',
                     controller: 'ActiveProjectsController as apc'
                 })
+                .state('projectDetail', {
+                    url: '/project_detail',
+                    templateUrl: '../views/activeProjectDetail.html',
+                    controller: 'ActiveProjectDetailController as apd',
+                    params: {project: null}
+                })
                 .state('registerStudent', {
                     url: '/hou_me_op_de_hoogte',
                     templateUrl: '../views/registerStudent.html',

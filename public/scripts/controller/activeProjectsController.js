@@ -6,7 +6,7 @@
         .module('humasol')
         .controller('ActiveProjectsController', ActiveProjectsController);
 
-    function ActiveProjectsController(Data) {
+    function ActiveProjectsController($state, Data) {
 
         var vm = this;
 
@@ -28,5 +28,9 @@
         }, function (error) {
             console.log(error);
         });
+
+        vm.showProjectDetail = function (project) {
+            $state.go('projectDetail', {'project': project});
+        };
     }
 })();

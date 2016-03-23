@@ -3,11 +3,11 @@
 <div class="container">
     <div class="row">
         <div class="col-sm-6 col-md-3" ng-repeat="project in apc.projects track by $index">
-            <div class="thumbnail">
+            <div class="thumbnail" ng-click="apc.showProjectDetail(project)">
                 <img ng-src="{{project.picture}}" alt="Generic placeholder thumbnail" class="img-responsive">
             </div>
 
-            <div class="caption">
+            <div class="caption" ng-click="apc.showProjectDetail(project)">
                 <p class="thumbnailCaption">{{project.title}}</p>
             </div>
         </div>
