@@ -116,6 +116,12 @@ class DatabaseSeeder extends Seeder
             'project_id' => $project->id
         ));
 
+        $anotherBlog = Blog::create(array(
+            'year' => '2016',
+            'title' => 'secondBlog',
+            'project_id' => $anotherProject->id
+        ));
+
         $post = Post::create(array(
             'title' => 'Introduction of the project',
             'student_id' => $student->id,
