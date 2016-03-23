@@ -59,7 +59,9 @@
                                     <ul class="media-list col-sm-3">
                                         <li class="media">
                                             <div class="media-body">
-                                                <h4 class="media-heading">Lopende projecten</h4>
+                                                <h4 class="media-heading" ng-click="hc.goto('activeProjects')">
+                                                    Lopende projecten
+                                                </h4>
                                             </div>
                                         </li>
                                         <li class="media">
@@ -240,6 +242,7 @@
 <script src="scripts/controller/authController.js"></script>
 <script src="scripts/controller/headerController.js"></script>
 <script src="scripts/controller/homeController.js"></script>
+<script src="scripts/controller/activeProjectsController.js"></script>
 <script src="scripts/controller/registerStudentController.js"></script>
 <script src="scripts/controller/admin/manageUsersController.js"></script>
 <script src="scripts/controller/admin/studentDetailController.js"></script>

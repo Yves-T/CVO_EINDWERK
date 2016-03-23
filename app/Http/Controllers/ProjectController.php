@@ -18,6 +18,7 @@ class ProjectController extends Controller
     public function __construct()
     {
         $this->middleware('jwt.auth', ['except' => [
+            'index',
             'viewFile'
         ]]);
     }

@@ -73,6 +73,11 @@
                     templateUrl: '../views/homeView.html',
                     controller: 'HomeController as home'
                 })
+                .state('activeProjects', {
+                    url: '/lopende_projecten',
+                    templateUrl: '../views/activeProjectsView.html',
+                    controller: 'ActiveProjectsController as apc'
+                })
                 .state('registerStudent', {
                     url: '/hou_me_op_de_hoogte',
                     templateUrl: '../views/registerStudent.html',

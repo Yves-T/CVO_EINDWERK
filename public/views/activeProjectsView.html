@@ -1,0 +1,15 @@
+<h1>Lopende projecten</h1>
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-6 col-md-3" ng-repeat="project in apc.projects track by $index">
+            <div class="thumbnail">
+                <img ng-src="{{project.picture}}" alt="Generic placeholder thumbnail" class="img-responsive">
+            </div>
+
+            <div class="caption">
+                <p class="thumbnailCaption">{{project.title}}</p>
+            </div>
+        </div>
+    </div>
+</div>
