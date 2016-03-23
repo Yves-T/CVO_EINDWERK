@@ -75,14 +75,11 @@
                 var post_data = {  //prepare payload for request
                     'g-recaptcha-response': vcRecaptchaService.getResponse()  //send g-captcah-reponse to our server
                 };
-                console.log('google ok');
             }
 
             Data.checkCaptcha(post_data, function (response) {
                 if (response) {
-                    alert("Successfully verified and signed up the user");
                     Data.addCommentForPost(vm.post.id, vm.formData, function (comment) {
-                        console.log(comment);
                         vm.comments.push(comment);
                         vm.comments = sortComments(vm.comments);
                         vm.messageSuccess = 0;
