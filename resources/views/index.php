@@ -16,7 +16,7 @@
     <nav class="navbar navbar-default yamm" ng-controller="HeaderController as hc">
         <div class="container-fluid">
             <div class="navbar-header">
-                <a class="navbar-brand" href="javascript:;">Humasol</a>
+                <a class="navbar-brand" ng-click="hc.goto('home')" href="javascript:;">Humasol</a>
             </div>
 
             <ul class="nav navbar-nav">
