@@ -11,7 +11,9 @@ class PostController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('jwt.auth');
+        $this->middleware('jwt.auth', ['except' => [
+            'getRecentTeasers'
+        ]]);
     }
 
     /**
@@ -50,5 +52,34 @@ class PostController extends Controller
         $post->content = $request->postcontent;
         $post->update();
         return response()->json($post->title);
+    }
+
+    /**
+     * Get 4 most recent teasers ordered by date created.
+     * @return mixed
+     */
+    public function getRecentTeasers()
+    {
+        // 4 most recent blog posts with teaser
+        $posts = Post::orderBy('created_at')->take(4)->get();
+        foreach ($posts as $post) {
+            $post->student;
+            $post->read_more = (strlen($post->content) > 120) ? $this->getSnpippet($post->content, 30) : $post->content;
+        }
+        return response()->json($posts);
+    }
+
+    private function getSnpippet($str, $wordCount = 10)
+    {
+        return implode('', array_slice(
+            preg_split(
+                '/([\s,\.;\?\!]+)/',
+                $str,
+                $wordCount * 2 + 1,
+                PREG_SPLIT_DELIM_CAPTURE
+            ),
+            0,
+            $wordCount * 2 - 1
+        ));
     }
 }

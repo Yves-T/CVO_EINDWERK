@@ -58,6 +58,10 @@ angular
             $http.put('api/post/' + postId, formData).success(success).error(error);
         };
 
+        var getRecententPostTeasers = function (success, error) {
+            $http.get('api/post/recent').success(success).error(error);
+        };
+
         var deletePost = function (postId, success, error) {
             $http.delete('api/post/' + postId).success(success).error(error);
         };
@@ -97,6 +101,7 @@ angular
             getPostsForStudent: getPostsForStudent,
             addPostForStudent: addPostForStudent,
             updatePost: updatePost,
+            getRecententPostTeasers: getRecententPostTeasers,
             deletePost: deletePost,
             getTechnologies: getTechnologies,
             getSponsors: getSponsors,

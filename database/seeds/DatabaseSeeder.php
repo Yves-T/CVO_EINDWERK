@@ -116,18 +116,51 @@ class DatabaseSeeder extends Seeder
         ));
 
         $post = Post::create(array(
-            'title' => 'someBlogTitle',
+            'title' => 'Introduction of the project',
             'student_id' => $student->id,
             'blog_id' => $blog->id,
-            'content' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In iaculis ut sapien eu lobortis.
-            Nullam maximus enim nec diam pellentesque, vitae euismod ex lobortis. Morbi ac mattis dui, a convallis
-            turpis. Donec aliquet commodo risus, ut ultricies justo pulvinar a. In porttitor imperdiet leo vel blandit.
-             Pellentesque finibus ante ac dapibus efficitur. Sed malesuada eget augue quis accumsan. Curabitur laoreet
-             sapien iaculis urna finibus sagittis. Sed sed nisi mauris. Aenean nunc lorem, elementum id rutrum at,
-             efficitur vitae lectus. Aenean pretium, magna ac mattis pretium, augue orci elementum est, sed convallis
-             arcu mauris mollis justo. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus
-             mus. Praesent id odio risus.'
+            'content' => '<p>Dear family and friends,</p>
+
+<p>By this blog you’ll be able to follow my progression on the waste management project I’ll be conducting in Ahero, Kenya.
+</p>
+<p>
+First a short introduction to the project:
+Waste generation is expected to increase significantly as a result of industrialization, urbanization and modernization
+of agriculture in Africa. Changing lifestyles and consumption patterns of the growing urban middle class, in particular,
+is increasing the complexity and composition of waste streams. This will further aggravate current capacity constraints
+in waste management. Waste management infrastructure is largely non-existent in rural areas in Africa. Improvements in
+these infrastructures are urgently needed to combat the high cost of health services and thereby alleviate poverty and
+reduce rural-urban migration.
+</p>
+<p>
+A few months ago, the Ebenezer Life Centre asked Humasol in if they could help develop a solution for the increasing
+waste problem in Ahero. Normally Humasol focusses on the design and implementation of renewable energy projects but for
+the first time waste management is added to their project portfolio.
+</p>
+<p>
+The Ebenezer Life center is a Christian faith-based non-profit organization founded by Winnie Owiti. They rescue and
+ support orphans, abandoned children, homeless vulnerable teens from the streets and less fortunate widows. The Center
+  provides shelter, food, clothing, education, healthcare, and vocational training through the different outreaches under
+  its umbrella affecting more than 1000 children.</p>'
         ));
+
+        $post = Post::create(array(
+            'title' => 'Arrival in Kenya!',
+            'student_id' => $student->id,
+            'blog_id' => $blog->id,
+            'content' => '<p>Dear family and friends,</p>
+<p>
+After a 12 hours flight I arrived in Nairobi early in the morning. Without visiting the capital, I immediately took the
+bus straight to Ahero. Seven hours later, I got welcomed in by Kelly and Kilian, two members of the Ebenezer Life Center.
+</p>
+<p>
+The project was actually launched a few weeks before my arrival in Kenya. I asked Tommy (Assistant Manager of Ebenezer)
+to form a waste management team so they could start to brainstorm on the topic. That helped us a lot forward because on
+the 18th of February we had our first meeting with het complete team (Figure 1 ). We decided to change our name from
+waste management committee into recourse committee to show the people that waste doesn’t exist. During an intensive
+meeting we discussed the opportunities of waste management for the Ebenezer life Centre.</p>'
+        ));
+
 
         Model::reguard();
 

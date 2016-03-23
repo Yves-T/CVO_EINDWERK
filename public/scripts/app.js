@@ -12,7 +12,8 @@
             'ui.bootstrap',
             'ui.bootstrap.dropdown',
             'mega-menu',
-            'ngFileUpload'
+            'ngFileUpload',
+            'ngSanitize'
 
         ])
         .config(function ($stateProvider, $urlRouterProvider, $authProvider, $httpProvider, $provide) {

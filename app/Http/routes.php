@@ -15,8 +15,6 @@ Route::group(['prefix' => 'api'], function () {
     Route::put('student/{studentId}/disconnectProject', 'StudentController@disconnectStudentFromProject');
     Route::get('student/{studentId}/posts', 'StudentController@getBlogPostsForStudent');
     Route::post('student/{id}/post', 'StudentController@addStudentPost');
-    Route::resource('post', 'PostController');
-    Route::resource('student', 'StudentController');
 
     Route::get('project/all', 'ProjectController@getAllProjects');
     Route::put('project/active/{id}', 'ProjectController@toggleActive');
@@ -27,7 +25,12 @@ Route::group(['prefix' => 'api'], function () {
     Route::get('project/{id}/student', 'ProjectController@getProjectStudents');
     Route::post('createUser', 'UserController@store');
 
+    Route::get('post/recent', 'PostController@getRecentTeasers');
+
     Route::post('user', 'UserController@store');
+
+    Route::resource('post', 'PostController');
+    Route::resource('student', 'StudentController');
     Route::resource('project', 'ProjectController');
     Route::resource('technology', 'TechnologyController');
     Route::resource('sponsor', 'SponsorController');

@@ -226,6 +226,7 @@
 <script src="node_modules/angular-ui-router/release/angular-ui-router.js"></script>
 <script src="node_modules/angular-animate/angular-animate.min.js"></script>
 <script src="node_modules/satellizer/satellizer.js"></script>
+<script src="bower_components/angular-sanitize/angular-sanitize.min.js"></script>
 <script src="node_modules/angular-ui-bootstrap/ui-bootstrap-tpls.js"></script>
 <script src="node_modules/angular-utils-pagination/dirPagination.js"></script>
 <script src='node_modules/textangular/dist/textAngular-rangy.min.js'></script>
