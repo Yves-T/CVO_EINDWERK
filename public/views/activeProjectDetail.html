@@ -66,4 +66,31 @@
 
 <hr>
 
+<div class="row">
+    <div class="col-lg-10 col-md-10">
+        <div ng-repeat="postTeaser in apd.posts track by $index">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 well">
+                    <h3>{{postTeaser.title}}</h3>
+                    <div ng-bind-html="postTeaser.read_more"></div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12 col-md-12 ">
+                    <p>
+                        <button class="btn btn-primary">Lees meer</button>
+                        <strong>
+                            <span class="pull-right">
+                            Geplaatst door:&nbsp;
+                            {{postTeaser.student.firstname}}&nbsp;{{postTeaser.student.lastname}}
+                        </span>
+                        </strong>
+                    </p>
+                </div>
+            </div>
+            <hr>
+        </div>
+    </div>
+</div>
+
 <br>

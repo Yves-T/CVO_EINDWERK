@@ -86,6 +86,10 @@ angular
             $http.get('api/project/' + id + '/student').success(success).error(error);
         };
 
+        var getBlogPostsForProject = function (id, success, error) {
+            $http.get('api/project/' + id + '/postTeasers').success(success).error(error);
+        };
+
         return {
             getAuthenticatedUser: getAuthenticatedUser,
             refreshToken: refreshToken,
@@ -107,6 +111,7 @@ angular
             getSponsors: getSponsors,
             updateProject: updateProject,
             createProject: createProject,
-            getStudentsForProject: getStudentsForProject
+            getStudentsForProject: getStudentsForProject,
+            getBlogPostsForProject: getBlogPostsForProject
         };
     }]);

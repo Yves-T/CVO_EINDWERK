@@ -11,6 +11,7 @@
         var vm = this;
 
         vm.project = $stateParams.project;
+        vm.posts = [];
 
         // it is possible that user has used the browser reload button
         // if a project exists in session storage, fetch it
@@ -31,6 +32,19 @@
             var updatedAt = moment(vm.project.updated_at);
             vm.updatedAt = updatedAt.locale('nl').format("LLL");
             vm.image = 'api/project/viewFile/' + vm.project.id;
+
+            fetchPostTeasersForProject();
+        }
+
+        function fetchPostTeasersForProject() {
+            Data.getBlogPostsForProject(vm.project.id, function (posts) {
+                _.forEach(posts, function (postTeaser) {
+                    postTeaser.read_more += ' ...';
+                });
+                vm.posts = posts;
+            }, function (error) {
+                console.log(error);
+            });
         }
 
         vm.goBack = function () {

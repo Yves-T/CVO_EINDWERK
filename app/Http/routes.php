@@ -23,6 +23,7 @@ Route::group(['prefix' => 'api'], function () {
     Route::post('project/updateFile/{id}', 'ProjectController@updateWithFile');
     Route::get('project/viewFile/{id}', 'ProjectController@viewFile');
     Route::get('project/{id}/student', 'ProjectController@getProjectStudents');
+    Route::get('project/{id}/postTeasers', 'ProjectController@getBlogPostTeasersForProject');
     Route::post('createUser', 'UserController@store');
 
     Route::get('post/recent', 'PostController@getRecentTeasers');
