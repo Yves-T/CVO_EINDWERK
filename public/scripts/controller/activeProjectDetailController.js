@@ -47,6 +47,10 @@
             });
         }
 
+        vm.showProjectDetail = function (post) {
+            $state.go('blogPostDetail', {"post": post});
+        };
+
         vm.goBack = function () {
             sessionStorage.removeItem('activeProject');
             $state.go('activeProjects', {});

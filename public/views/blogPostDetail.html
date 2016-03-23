@@ -1,0 +1,42 @@
+<h1>Blog post detail</h1>
+
+<div class="row">
+    <div class="col-lg-12">
+        <h4>{{bdc.post.title}}</h4>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-12">
+        <div ng-bind-html="bdc.post.content">
+
+        </div>
+    </div>
+</div>
+
+<button ng-click="bdc.goBack()" class="btn btn-default">Ga terug naar het project detail</button>
+
+<hr>
+
+<!--comments-->
+<div class="row" ng-show="bdc.showComments">
+    <div ng-repeat="comment in bdc.comments">
+        <div class="col-lg-12">
+            {{comment.comment}}
+        </div>
+
+        <div class="row">
+            <div class="col-lg-12 col-md-12">
+                <p>
+                    <strong>
+                            <span class="pull-right">
+                            Geplaatst door:&nbsp;
+                            {{comment.nickname}}
+                        </span>
+                    </strong>
+                </p>
+            </div>
+        </div>
+        <hr>
+    </div>
+</div>

@@ -12,7 +12,8 @@ class PostController extends Controller
     public function __construct()
     {
         $this->middleware('jwt.auth', ['except' => [
-            'getRecentTeasers'
+            'getRecentTeasers',
+            'getCommentsForPost'
         ]]);
     }
 
@@ -81,5 +82,17 @@ class PostController extends Controller
             0,
             $wordCount * 2 - 1
         ));
+    }
+
+    /**
+     * Get comments for a given post.
+     * @param $id
+     * @return mixed
+     */
+    public function getCommentsForPost($id)
+    {
+        $post = Post::findOrFail($id);
+        $comments = $post->comments;
+        return response()->json($comments);
     }
 }

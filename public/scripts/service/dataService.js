@@ -90,6 +90,10 @@ angular
             $http.get('api/project/' + id + '/postTeasers').success(success).error(error);
         };
 
+        var getCommentsForPost = function (id, success, error) {
+            $http.get('api/post/' + id + '/comments').success(success).error(error);
+        };
+
         return {
             getAuthenticatedUser: getAuthenticatedUser,
             refreshToken: refreshToken,
@@ -112,6 +116,7 @@ angular
             updateProject: updateProject,
             createProject: createProject,
             getStudentsForProject: getStudentsForProject,
-            getBlogPostsForProject: getBlogPostsForProject
+            getBlogPostsForProject: getBlogPostsForProject,
+            getCommentsForPost: getCommentsForPost
         };
     }]);

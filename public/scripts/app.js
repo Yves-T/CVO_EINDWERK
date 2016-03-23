@@ -84,6 +84,12 @@
                     controller: 'ActiveProjectDetailController as apd',
                     params: {project: null}
                 })
+                .state('blogPostDetail', {
+                    url: '/blog_detail',
+                    templateUrl: '../views/blogPostDetail.html',
+                    controller: 'BlogPostDetailController as bdc',
+                    params: {post: null}
+                })
                 .state('registerStudent', {
                     url: '/hou_me_op_de_hoogte',
                     templateUrl: '../views/registerStudent.html',

@@ -1,6 +1,7 @@
 <?php
 
 use App\Blog;
+use App\Comment;
 use App\Post;
 use App\Project;
 use App\Sponsor;
@@ -142,6 +143,13 @@ The Ebenezer Life center is a Christian faith-based non-profit organization foun
  support orphans, abandoned children, homeless vulnerable teens from the streets and less fortunate widows. The Center
   provides shelter, food, clothing, education, healthcare, and vocational training through the different outreaches under
   its umbrella affecting more than 1000 children.</p>'
+        ));
+
+        $comment = Comment::create(array(
+            'email' => 'eenGebuisdeStudent@cvo.be',
+            'nickname' => 'het buizerke',
+            'comment' => 'Ik vind dat Yves veel punten moet krijgen',
+            'post_id' => $post->id
         ));
 
         $post = Post::create(array(

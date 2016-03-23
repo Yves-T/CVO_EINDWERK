@@ -244,6 +244,7 @@
 <script src="scripts/controller/homeController.js"></script>
 <script src="scripts/controller/activeProjectsController.js"></script>
 <script src="scripts/controller/activeProjectDetailController.js"></script>
+<script src="scripts/controller/blogDetailController.js"></script>
 <script src="scripts/controller/registerStudentController.js"></script>
 <script src="scripts/controller/admin/manageUsersController.js"></script>
 <script src="scripts/controller/admin/studentDetailController.js"></script>

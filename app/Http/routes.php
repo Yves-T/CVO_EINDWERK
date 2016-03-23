@@ -27,6 +27,7 @@ Route::group(['prefix' => 'api'], function () {
     Route::post('createUser', 'UserController@store');
 
     Route::get('post/recent', 'PostController@getRecentTeasers');
+    Route::get('post/{id}/comments', 'PostController@getCommentsForPost');
 
     Route::post('user', 'UserController@store');
 
