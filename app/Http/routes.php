@@ -26,6 +26,9 @@ Route::group(['prefix' => 'api'], function () {
     Route::get('project/{id}/postTeasers', 'ProjectController@getBlogPostTeasersForProject');
     Route::post('createUser', 'UserController@store');
 
+    Route::post('comment/captcha', 'CommentController@checkGoogleCaptcha');
+    Route::post('comment/post/{id}', 'CommentController@addCommentForBlog');
+
     Route::get('post/recent', 'PostController@getRecentTeasers');
     Route::get('post/{id}/comments', 'PostController@getCommentsForPost');
 

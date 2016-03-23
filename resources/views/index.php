@@ -9,6 +9,9 @@
     <link rel="stylesheet" href="bower_components/Yamm3/yamm/yamm.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel='stylesheet' href='node_modules/textangular/dist/textAngular.css'>
+    <script
+        src="https://www.google.com/recaptcha/api.js?onload=vcRecaptchaApiLoaded&render=explicit" async defer>
+    </script>
 </head>
 <body ng-app="humasol">
 <header role="banner" ng-cloak>
@@ -229,6 +232,7 @@
 <script src="node_modules/angular-animate/angular-animate.min.js"></script>
 <script src="node_modules/satellizer/satellizer.js"></script>
 <script src="bower_components/angular-sanitize/angular-sanitize.min.js"></script>
+<script src="node_modules/angular-recaptcha/release/angular-recaptcha.min.js"></script>
 <script src="node_modules/angular-ui-bootstrap/ui-bootstrap-tpls.js"></script>
 <script src="node_modules/angular-utils-pagination/dirPagination.js"></script>
 <script src='node_modules/textangular/dist/textAngular-rangy.min.js'></script>

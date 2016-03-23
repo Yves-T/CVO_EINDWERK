@@ -94,6 +94,14 @@ angular
             $http.get('api/post/' + id + '/comments').success(success).error(error);
         };
 
+        var addCommentForPost = function (id, data, success, error) {
+            $http.post('api/comment/post/' + id, data).success(success).error(error);
+        };
+
+        var checkCaptcha = function (data, success, error) {
+            $http.post('api/comment/captcha', data).success(success).error(error);
+        };
+
         return {
             getAuthenticatedUser: getAuthenticatedUser,
             refreshToken: refreshToken,
@@ -117,6 +125,8 @@ angular
             createProject: createProject,
             getStudentsForProject: getStudentsForProject,
             getBlogPostsForProject: getBlogPostsForProject,
-            getCommentsForPost: getCommentsForPost
+            getCommentsForPost: getCommentsForPost,
+            checkCaptcha: checkCaptcha,
+            addCommentForPost: addCommentForPost
         };
     }]);

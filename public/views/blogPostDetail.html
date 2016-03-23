@@ -1,5 +1,9 @@
 <h1>Blog post detail</h1>
 
+<alert type="success" close="bdc.messageSuccess=1" ng-hide="bdc.messageSuccess">
+    {{bdc.message.message}}
+</alert>
+
 <div class="row">
     <div class="col-lg-12">
         <h4>{{bdc.post.title}}</h4>
@@ -19,6 +23,59 @@
 <hr>
 
 <!--comments-->
+<h3>Commentaar</h3>
+<button class="btn btn-primary" ng-click="bdc.showComment()" ng-hide="bdc.showCommentForm">Commentaar plaatsen</button>
+
+<div class="row" ng-show="bdc.showCommentForm">
+    <div class="col-lg-12 col-md-12">
+
+        <alert type="danger" close="bdc.messageError=1" ng-hide="bdc.messageError">
+            {{bdc.message.error}}
+        </alert>
+
+        <form id="comment-form" name="commentForm" ng-submit="bdc.processForm()" novalidate>
+
+            <div class="form-group">
+                <label for="commentNickname">Nickname</label>
+                <input type="text" class="form-control" id="commentNickname" name="commentNickname"
+                       ng-model="bdc.formData.commentNickname" required>
+                <p ng-show="commentForm.commentNickname.$invalid && !commentForm.commentNickname.$pristine"
+                   class="help-block">
+                    De commentaar is verplicht.
+                </p>
+            </div>
+
+            <div class="form-group">
+                <label for="commentEmail">Email</label>
+                <input required type="email" class="form-control" id="commentEmail" name="commentEmail"
+                       ng-model="bdc.formData.commentEmail" required>
+                <p ng-show="commentForm.commentEmail.$invalid && !commentForm.commentEmail.$pristine"
+                   class="help-block">
+                    Gelieve een geldig email adres in te geven.
+                </p>
+            </div>
+
+            <div class="form-group">
+                <label for="commentContent">Commentaar</label>
+                <!--<input required type="email" class="form-control" id="commentContent" name="commentContent"-->
+                <!--ng-model="bdc.formData.commentContent" required>-->
+                <textarea name="commentContent" id="commentContent" class="form-control" cols="30" rows="10"
+                          ng-model="bdc.formData.commentContent" required></textarea>
+                <p ng-show="commentForm.commentContent.$invalid && !commentForm.commentContent.$pristine"
+                   class="help-block">
+                    Gelieve commentaar in te geven.
+                </p>
+            </div>
+
+            <div vc-recaptcha key="bdc.publicKey"></div>
+            <br>
+
+            <button type="submit" class="btn btn-primary" ng-disabled="commentForm.$invalid">Verzenden</button>
+            <button class="btn btn-default" ng-click="bdc.cancelCommentForm()">Annuleren</button>
+        </form>
+    </div>
+</div>
+<hr>
 <div class="row" ng-show="bdc.showComments">
     <div ng-repeat="comment in bdc.comments">
         <div class="col-lg-12">
@@ -32,6 +89,18 @@
                             <span class="pull-right">
                             Geplaatst door:&nbsp;
                             {{comment.nickname}}
+                        </span>
+                    </strong>
+                </p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12 col-md-12">
+                <p>
+                    <strong>
+                            <span class="pull-right">
+                            Geplaatst op:&nbsp;
+                            {{bdc.getDateAsString(comment.created_at)}}
                         </span>
                     </strong>
                 </p>

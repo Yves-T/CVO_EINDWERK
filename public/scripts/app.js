@@ -13,7 +13,8 @@
             'ui.bootstrap.dropdown',
             'mega-menu',
             'ngFileUpload',
-            'ngSanitize'
+            'ngSanitize',
+            'vcRecaptcha'
 
         ])
         .config(function ($stateProvider, $urlRouterProvider, $authProvider, $httpProvider, $provide) {
