@@ -10,6 +10,12 @@
 
         var vm = this;
         vm.post = $stateParams.post;
+        vm.fromHomePage = $stateParams.homePage;
+        if (vm.fromHomePage) {
+            vm.goBackBtn = 'Ga terug naar de home pagina';
+        } else {
+            vm.goBackBtn = 'Ga terug naar het project detail';
+        }
         vm.comments = [];
         vm.messageError = 1;
         vm.messageSuccess = 1;
@@ -56,7 +62,11 @@
 
         vm.goBack = function () {
             sessionStorage.removeItem('postDetail');
-            $state.go('projectDetail', {});
+            if (vm.fromHomePage) {
+                $state.go('home', {});
+            } else {
+                $state.go('projectDetail', {});
+            }
         };
 
         vm.showComment = function () {

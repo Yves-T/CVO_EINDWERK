@@ -25,5 +25,9 @@
             $state.go(state, {});
         };
 
+        vm.showPostDetail = function (post) {
+            $state.go('blogPostDetail', {post: post, homePage: true});
+        };
+
     }
 })();
