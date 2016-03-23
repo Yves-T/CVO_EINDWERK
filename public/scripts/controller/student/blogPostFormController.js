@@ -37,7 +37,7 @@
             Data.updatePost($stateParams.post.id, vm.formData, function (postTitle) {
                 $state.go('studentManageBlogPosts', {
                     message: {
-                        "message": 'Post "' + postTitle + '" met success aangemaakt',
+                        "message": 'Post "' + postTitle + '" met success aangepast.',
                         "error": null
                     }
                 });
