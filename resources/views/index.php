@@ -136,7 +136,7 @@
 
             <!--        private section-->
             <!--        user only section-->
-            <ul ng-show="currentUser.isAStudent" class="nav navbar-nav">
+            <ul ng-show="currentUser.isAStudent == 1" class="nav navbar-nav">
                 <!-- user profile section -->
                 <li class="dropdown" dropdown>
                     <a class="dropdown-toggle" dropdown-toggle toggle-event="mouseover" href="javascript:;">
@@ -160,7 +160,7 @@
             </ul>
 
             <!-- admin only section-->
-            <ul ng-show="currentUser.isAdmin" class="nav navbar-nav">
+            <ul ng-show="currentUser.isAdmin == 1" class="nav navbar-nav">
                 <!-- admin user section -->
                 <li class="dropdown" dropdown>
                     <a class="dropdown-toggle" dropdown-toggle toggle-event="mouseover" href="javascript:;">
