@@ -8,6 +8,10 @@
 
     function AuthController($auth, $state, $rootScope, Data, Auth) {
 
+        $rootScope.title = 'Humasol - Gebruiker login pagina';
+        $rootScope.metaDescription = 'Humasol is een Belgische vierdepijler organisatie die ingenieursstudenten de kans' +
+            ' biedt hernieuwbare energieprojecten uit te voeren in minder begoede delen van de wereld';
+
         var vm = this;
 
         vm.loginError = false;

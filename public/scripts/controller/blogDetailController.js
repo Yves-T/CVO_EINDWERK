@@ -6,7 +6,11 @@
         .module('humasol')
         .controller('BlogPostDetailController', BlogPostDetailController);
 
-    function BlogPostDetailController($state, $stateParams, Data, vcRecaptchaService, $http) {
+    function BlogPostDetailController($state, $stateParams, Data, vcRecaptchaService, $http, $rootScope) {
+
+        $rootScope.title = 'Humasol - Blog post in detail weergeven';
+        $rootScope.metaDescription = 'Humasol is een Belgische vierdepijler organisatie die ingenieursstudenten de kans' +
+            ' biedt hernieuwbare energieprojecten uit te voeren in minder begoede delen van de wereld';
 
         var vm = this;
         vm.post = $stateParams.post;

@@ -158,8 +158,14 @@
                 });
 
         })
-        .run(function ($rootScope, $state, $auth, $http, Auth) {
+        .run(function ($rootScope, $state, $auth, $window, $location, $http, Auth) {
 
+            window.ga('create', 'UA-70180307-5', 'auto');
+
+            // record page view on each state change
+            $rootScope.$on('$stateChangeSuccess', function (event) {
+                $window.ga('send', 'pageview', $location.path());
+            });
 
             $rootScope.$on('$stateChangeStart', function (event, toState) {
                 var user = JSON.parse(localStorage.getItem('user'));

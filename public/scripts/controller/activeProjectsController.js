@@ -6,7 +6,11 @@
         .module('humasol')
         .controller('ActiveProjectsController', ActiveProjectsController);
 
-    function ActiveProjectsController($state, Data) {
+    function ActiveProjectsController($rootScope, $state, Data) {
+
+        $rootScope.title = 'Humasol - Weergave actieve projecten';
+        $rootScope.metaDescription = 'Humasol is een Belgische vierdepijler organisatie die ingenieursstudenten de kans' +
+            ' biedt hernieuwbare energieprojecten uit te voeren in minder begoede delen van de wereld';
 
         var vm = this;
 
