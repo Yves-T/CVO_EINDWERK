@@ -6,7 +6,7 @@
         .module('humasol')
         .controller('BlogPostDetailController', BlogPostDetailController);
 
-    function BlogPostDetailController($state, $stateParams, Data, vcRecaptchaService, $http, $rootScope) {
+    function BlogPostDetailController($state, $stateParams, Data, vcRecaptchaService, $http, $rootScope, $scope) {
 
         $rootScope.title = 'Humasol - Blog post in detail weergeven';
         $rootScope.metaDescription = 'Humasol is een Belgische vierdepijler organisatie die ingenieursstudenten de kans' +
@@ -100,11 +100,15 @@
 
                         vm.message.message = "De comment was met succes toegevoegd.";
                         vm.showCommentForm = false;
+                        // reset the captcha
+                        grecaptcha.reset();
+                        clearCommentForm();
                     }, function (error) {
                         console.log(error);
                         vm.message.error = "Er ging iets mis met het plaatsen van de comment. Probeer het later nog " +
                             "eens opnieuw";
                         vm.messageError = 0;
+                        grecaptcha.reset();
                     })
                 } else {
                     vm.message.error = "Foute captcha. Probeer opnieuw.";
@@ -126,6 +130,14 @@
             return vm.comments = comments.sort(function (comment, anotherComment) {
                 return moment(comment.created_at).unix() < moment(anotherComment.created_at).unix();
             });
+        }
+
+        function clearCommentForm() {
+            $scope.commentForm.$setPristine();
+            $scope.commentForm.$setUntouched();
+            vm.formData.commentNickname = "";
+            vm.formData.commentEmail = "";
+            vm.formData.commentContent = "";
         }
     }
 })();
