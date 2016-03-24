@@ -41,6 +41,7 @@ Install AngularJs dependencies
 
 * cd public
 * npm install
+* bower install
 
 Install and seed database
 
