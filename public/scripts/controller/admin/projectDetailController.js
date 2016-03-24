@@ -22,7 +22,18 @@
 
         var vm = this;
         vm.project = $stateParams.project;
+
+        if (!vm.project) {
+            var project = JSON.parse(sessionStorage.getItem('projectDetail'));
+            if (project) {
+                vm.project = project;
+            }
+        }
+
         if (vm.project) {
+            var projectAsString = JSON.stringify(vm.project);
+            sessionStorage.setItem('projectDetail', projectAsString);
+
             moment.locale('nl', null);
             var createdAt = moment(vm.project.created_at);
             vm.createdAt = createdAt.locale('nl').format("LLL");
@@ -37,6 +48,7 @@
         }
 
         vm.goBack = function () {
+            sessionStorage.removeItem('projectDetail');
             $state.go('adminManageProjects', {
                 "message": null,
                 "error": null
