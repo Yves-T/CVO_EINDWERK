@@ -16,6 +16,7 @@
         }
 
         var vm = this;
+        vm.enableAddPostButton = true;
         vm.messageSuccess = 1;
         vm.messageError = 1;
         vm.message = $stateParams.message;
@@ -28,6 +29,13 @@
         }, function (error) {
             console.log(error);
         });
+
+        Data.getProjectForStudent(Auth.currentUser().id, function (project) {
+            vm.enableAddPostButton = !(project !== null && typeof project === 'object');
+        }, function (error) {
+            console.log(error);
+        });
+
         vm.reverse = false;
         vm.okMessage = false;
         vm.errorMessage = false;

@@ -18,6 +18,7 @@ Route::group(['prefix' => 'api'], function () {
     Route::put('student/{studentId}/connecProject/{projectId}', 'StudentController@connectToProject');
     Route::put('student/{studentId}/disconnectProject', 'StudentController@disconnectStudentFromProject');
     Route::get('student/{studentId}/posts', 'StudentController@getBlogPostsForStudent');
+    Route::get('student/{studentId}/project', 'StudentController@getProjectForStudent');
     Route::post('student/{id}/post', 'StudentController@addStudentPost');
 
     Route::get('project/all', 'ProjectController@getAllProjects');

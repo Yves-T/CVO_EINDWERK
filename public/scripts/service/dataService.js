@@ -50,6 +50,10 @@ angular
             $http.get('api/student/' + studentId + '/posts').success(success).error(error);
         };
 
+        var getProjectForStudent = function (studentId, success, error) {
+            $http.get('api/student/' + studentId + '/project').success(success).error(error);
+        };
+
         var addPostForStudent = function (userId, formData, success, error) {
             $http.post('api/student/' + userId + '/post', formData).success(success).error(error);
         };
@@ -115,6 +119,7 @@ angular
             connectStudentToProject: connectStudentToProject,
             disconnectStudentToProject: disconnectStudentToProject,
             getPostsForStudent: getPostsForStudent,
+            getProjectForStudent: getProjectForStudent,
             addPostForStudent: addPostForStudent,
             updatePost: updatePost,
             getRecententPostTeasers: getRecententPostTeasers,

@@ -48,6 +48,24 @@ class StudentController extends Controller
     }
 
     /**
+     * Get project for active student. Returns the project if there is one.
+     * Returns false otherwise.
+     * @param $id
+     */
+    public function getProjectForStudent($id)
+    {
+        $user = User::findOrFail($id);
+        $students = $user->students()->take(1)->get();
+        $student = $students[0];
+        $project = $student->project;
+        if (isset($project)) {
+            return response()->json($project);
+        } else {
+            return response()->json(false);
+        }
+    }
+
+    /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
