@@ -74,6 +74,7 @@
         };
 
         vm.showComment = function () {
+            grecaptcha.reset();
             vm.showCommentForm = true;
         };
 
@@ -95,7 +96,7 @@
                 vm.messageError = 0;
             } else {
                 var post_data = {  //prepare payload for request
-                    'g-recaptcha-response': vcRecaptchaService.getResponse()  //send g-captcah-reponse to our server
+                    'g-recaptcha-response': vcRecaptchaService.getResponse(vm.widgetId)  //send g-captcah-reponse to our server
                 };
             }
 
