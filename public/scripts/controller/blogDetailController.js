@@ -77,7 +77,8 @@
             vm.showCommentForm = true;
         };
 
-        vm.cancelCommentForm = function () {
+        vm.cancelCommentForm = function (event) {
+            event.preventDefault();
             vm.showCommentForm = false;
         };
 
