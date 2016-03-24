@@ -82,8 +82,15 @@
             vm.showCommentForm = false;
         };
 
+        vm.widgetId = null;
+
+        vm.setWidgetId = function (widgetId) {
+            // store the `widgetId` for future usage.
+            vm.widgetId = widgetId;
+        };
+
         vm.processForm = function () {
-            if (vcRecaptchaService.getResponse() === "") { //if string is empty
+            if (vcRecaptchaService.getResponse(vm.widgetId) === "") { //if string is empty
                 vm.message.error = "De captcha was fout. Probeer deze op te lossen alvorens verder te gaan";
                 vm.messageError = 0;
             } else {
