@@ -146,9 +146,11 @@
         function clearCommentForm() {
             $scope.commentForm.$setPristine();
             $scope.commentForm.$setUntouched();
-            vm.formData.commentNickname = "";
-            vm.formData.commentEmail = "";
-            vm.formData.commentContent = "";
+            if(vm.formData) {
+                vm.formData.commentNickname = "";
+                vm.formData.commentEmail = "";
+                vm.formData.commentContent = "";
+            }
         }
     }
 })();
