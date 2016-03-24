@@ -222,7 +222,6 @@
     <div ui-view></div>
 </div>
 
-</body>
 <!--google analytics-->
 <script>
     (function (i, s, o, g, r, a, m) {
@@ -280,5 +279,7 @@
 <script src="scripts/directives/confirmDirective.js"></script>
 <script src="scripts/filter/yesNo.js"></script>
 <script src="scripts/filter/connectButton.js"></script>
+
+</body>
 
 </html>
