@@ -81,6 +81,7 @@
         vm.cancelCommentForm = function (event) {
             event.preventDefault();
             vm.showCommentForm = false;
+            clearCommentForm();
         };
 
         vm.widgetId = null;
