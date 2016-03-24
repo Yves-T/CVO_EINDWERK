@@ -96,6 +96,7 @@
                 if (response) {
                     Data.addCommentForPost(vm.post.id, vm.formData, function (comment) {
                         vm.comments.push(comment);
+                        vm.showComments = vm.comments.length > 0;
                         vm.comments = sortComments(vm.comments);
                         vm.messageSuccess = 0;
 
