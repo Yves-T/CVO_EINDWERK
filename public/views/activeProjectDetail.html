@@ -47,8 +47,8 @@
 
 <h4 ng-show="apd.project.longdescription">Project lange omschrijving</h4>
 <div class="row" ng-show="apd.project.longdescription">
-    <div class="col-lg-12">
-        {{apd.project.longdescription}}
+    <div class="col-lg-12" ng-bind-html="apd.project.longdescription">
+
     </div>
 </div>
 
