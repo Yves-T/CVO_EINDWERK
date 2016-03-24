@@ -43,8 +43,8 @@
 
 <h3 ng-show="pdc.project.longdescription">Project lange omschrijving</h3>
 <div class="row" ng-show="pdc.project.longdescription">
-    <div class="col-lg-12">
-        {{pdc.project.longdescription}}
+    <div class="col-lg-12" ng-bind-html="pdc.project.longdescription">
+
     </div>
 </div>
 
