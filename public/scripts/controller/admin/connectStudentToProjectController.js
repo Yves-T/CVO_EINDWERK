@@ -95,6 +95,10 @@
             });
         };
 
+        vm.cancelConnectStudent = function () {
+            vm.showConnectStudentToProject = false;
+        };
+
         vm.showTable = function () {
             return vm.students.length !== 0;
         };
