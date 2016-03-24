@@ -59,8 +59,18 @@ class DatabaseSeeder extends Seeder
         }
 
         $sponsors = array(
-            ['name' => 'sponsor1'],
-            ['name' => 'sponsor2'],
+            ['name' => 'Umicore'],
+            ['name' => 'AMS'],
+            ['name' => 'Bierbeek'],
+            ['name' => 'Wortegem-Petegem'],
+            ['name' => 'Atlas Copco'],
+            ['name' => 'Umicore'],
+            ['name' => 'Stad Antwerpen'],
+            ['name' => 'KUBFS'],
+            ['name' => 'ING'],
+            ['name' => 'Pidpa'],
+            ['name' => 'H. Familie Sint-Niklaas'],
+            ['name' => 'Idewe']
         );
 
         foreach ($sponsors as $sponsor) {
