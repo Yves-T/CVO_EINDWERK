@@ -63,13 +63,9 @@
             <tr dir-paginate="student in stpc.students|orderBy:stpc.sortKey:stpc.reverse|filter:stpc.search
         | itemsPerPage:5" pagination-id="connectStudentPagination">
                 <td>{{student.id}}</td>
-                <td><a href="javascript:;" ng-click="stpc.showUserDetail(student.id)">{{student.firstname}}</a></td>
-                <td><a href="javascript:;" ng-click="stpc.showUserDetail(student.id)">{{student.lastname}}</a></td>
-                <td>
-                    <a class="article" href="javascript:;" ng-click="stpc.showUserDetail(student.id)">
-                        {{student.project.title}}
-                    </a>
-                </td>
+                <td>{{student.firstname}}</td>
+                <td>{{student.lastname}}</td>
+                <td>{{student.project.title}}</td>
                 <td>
                     <button class="btn"
                             ng-class="{'btn-success': !student.project.title,'btn-danger': student.project.title }"
