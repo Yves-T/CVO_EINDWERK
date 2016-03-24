@@ -58,7 +58,7 @@ class StudentController extends Controller
         $students = $user->students()->take(1)->get();
         $student = $students[0];
         $project = $student->project;
-        if (isset($project)) {
+        if (isset($project) && $project->isActive) {
             return response()->json($project);
         } else {
             return response()->json(false);
