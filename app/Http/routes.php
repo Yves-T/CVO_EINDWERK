@@ -4,6 +4,10 @@ Route::get('/', function () {
     return view('index');
 })->name('index');
 
+Route::get('{all}', function () {
+    return View::make('index');
+});
+
 Route::group(['prefix' => 'api'], function () {
     Route::resource('authenticate', 'AuthenticateController', ['only' => ['index']]);
     Route::post('authenticate', 'AuthenticateController@authenticate');
