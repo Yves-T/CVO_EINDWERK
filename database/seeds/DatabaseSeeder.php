@@ -80,6 +80,7 @@ class DatabaseSeeder extends Seeder
 
         $users = array(
             ['name' => 'admin', 'email' => 'admin@cvo.be', 'password' => Hash::make('secret'), 'isAdmin' => 1],
+            ['name' => 'anotheradmin', 'email' => 'pipo@cvo.be', 'password' => Hash::make('secret'), 'isAdmin' => 1],
             ['name' => 'student', 'email' => 'student@cvo.be', 'password' => Hash::make('secret'), 'isAStudent' => 1],
             [
                 'name' => 'studentwithoutproject',
