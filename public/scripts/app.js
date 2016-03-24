@@ -17,7 +17,7 @@
             'vcRecaptcha'
 
         ])
-        .config(function ($stateProvider, $urlRouterProvider, $authProvider, $httpProvider, $provide) {
+        .config(function ($stateProvider, $urlRouterProvider, $authProvider, $httpProvider, $provide, $locationProvider) {
 
             function redirectWhenLoggedOut($q, $injector) {
 
@@ -67,6 +67,8 @@
             $authProvider.loginUrl = '/api/authenticate';
 
             $urlRouterProvider.otherwise('/');
+
+            $locationProvider.html5Mode(true);
 
             $stateProvider
                 .state('home', {
